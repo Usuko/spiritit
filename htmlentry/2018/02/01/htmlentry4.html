@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>HTML入門[第四回]HTMLでよく使うタグSpiritIt</title>
+  <!-- stylesheet -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/materialize.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/prism.css">
+  <!-- js -->
+  <script src="/assets/js/jquery/jquery.min.js"></script>
+  <script src="/assets/js/site.js"></script>
+  <script src="/assets/js/prism.js"></script>
+
+  <meta name="description" content="サイトディスクリプションを記述します
+">
+  <meta name="viewport" content="width=device-width">
+</head>
+<body>
+  <div class="content">
+    <header>
+      <nav class="brandcolor">
+        <div class="container">
+          <div class="nav-wrapper">
+            <a href="/" class="brand-logo">SpiritIt</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              
+                <li><a href="/categories/htmlentry">HTML入門</a></li>
+              
+                <li><a href="/categories/cssappli">CSS応用</a></li>
+              
+                <li><a href="/categories/cssentry">CSS入門</a></li>
+              
+                <li><a href="/categories/htmltopic">HTML/CSSトピック</a></li>
+              
+                <li><a href="/categories/htmlpre">HTML初級</a></li>
+              
+                <li><a href="/categories/pcelement">パソコンの基礎</a></li>
+              
+                <li><a href="/categories/environment">環境構築</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="content-wrap">
+      <main class="content-body">
+  <span class="post-category">HTML入門</span>
+  <h1>HTML入門[第四回]HTMLでよく使うタグ</h1>
+  <div class="chip">
+    <i class="material-icons v-middle">access_time</i>
+    2018年02月01日
+  </div>
+  <h2 id="よく使うタグ">よく使うタグ</h2>
+<p>きれいに書かれたHTMLでは頻繁に使うタグは決まっています。特殊なデザインのページ以外ではほとんど同じようなタグしか使いません。これらよく使うタグを見ていきましょう。やはりこれも暗記するといったことは必要ありません、ブログや趣味のサイトを作った場合結果的によく使うようになります。</p>
+
+<h3 id="pタグ">&lt;p&gt;タグ</h3>
+<p>これは段落を表すタグです。一つの文章の塊で区切りたい場合必要になってきます。この文書もpタグを使って段落を区切っています。また、段落中下記の記述では改行をしていますが見やすいようにしているだけです。エディタで入力されている改行はHTMLでは無視されます。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"wrap"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;p&gt;</span>
+				改行コードをいれます。<span class="nt">&lt;br&gt;</span>
+				しかしこの記述の後には改行を入れません。
+				そのためこの文章の前には改行はありません。<span class="nt">&lt;br&gt;</span>
+				改行タグを入れた位置、入れない位置の違いを確認してください。
+			<span class="nt">&lt;/p&gt;</span>
+
+		<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>[表示結果]<br />
+<img src="/assets/img/htmlentry_4/htmlentry_4_1.jpg" alt="entry_4_1" /></p>
+
+<h3 id="divタグ">&lt;div&gt;タグ</h3>
+<p>このタグはdivisionタグ（ディブタグと呼んでます）これは特に意味を持ちませんがデザイン上要素の塊を区切るときに使います。ここからここまではひと塊といったときに使います。</p>
+
+<div class="chusyaku">html5ではheaderタグ、articleタグといったdivタグのように要素の塊を区切るときにある程度意味を持たせるタグがあるので塊に意味がある場合にはそれらのタグを使うのがベストです。それより細かく区切るときに使いましょう。（といってもきれいに書くのはとても大変なので気にしないという手段もあります）</div>
+<p><img src="/assets/img/htmlentry_4/htmlentry_4_2.jpg" alt="entry_4_1" /></p>
+
+<p>上記のように記事見出し一覧みたいな画面で複数の記事を表現するときに区切りとして使ったりする。デザインで透明のままでもよいが背景色を変えたり区切り線をつけたりすることもできる。</p>
+
+<h3 id="h1h6">&lt;h1&gt;～&lt;h6&gt;</h3>
+<p>h1～h6タグ。Headingタグの略ですが１～６の順で重要なページ内タイトルです。html構造上とても重要なタグとして位置づけられています。この文章は大きくh1に書かれていることについての文書として認識されます。この情報をGoogleなどの検索エンジンやブラウザや様々なサービスが解析します。</p>
+
+<p>このページでいう次の画像の部分がh2タグh3タグです
+<img src="/assets/img/htmlentry_4/htmlentry_4_3.jpg" alt="entry_4_1" /></p>
+
+<p>下記のように記述します</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"wrap"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;h1&gt;</span>大見出し、文書の内容を象徴するような見出し<span class="nt">&lt;/h1&gt;</span>
+
+			<span class="nt">&lt;p&gt;</span>
+				文章の段落１
+			<span class="nt">&lt;/p&gt;</span>
+
+			<span class="nt">&lt;h2&gt;</span>中見出し、文章を区切ったそれぞれの内容の見出し<span class="nt">&lt;/h2&gt;</span>
+
+			<span class="nt">&lt;p&gt;</span>
+				文章の段落２
+			<span class="nt">&lt;/p&gt;</span>
+
+		<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>[表示結果]<br />
+<img src="/assets/img/htmlentry_4/htmlentry_4_4.jpg" alt="entry_4_1" /></p>
+
+<h3 id="spanタグ">&lt;span&gt;タグ</h3>
+<p>divタグよりさらに小さい文章の中の一部を装飾したいときに区切るタグ。文章の一部を赤色で表示したい時などに使用します。cssのフォントの知識と前後しますが下記のように記述すると文章の一部の色を変えたりすることができます。divタグでも全く同じことができますが文章の一部の場合はこのspanタグを使うのが一般的です。</p>
+
+<p>[style.css]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>p{
+    text-indent:1em;
+}
+
+.akamoji{
+    color:red;
+}
+</code></pre></div></div>
+
+<p>[index.html]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"wrap"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;p&gt;</span>
+				段落タグで囲まれた段落のうち一部だけ<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"akamoji"</span><span class="nt">&gt;</span>赤文字<span class="nt">&lt;/span&gt;</span>
+				にしたい場合に利用するタグです。
+			<span class="nt">&lt;/p&gt;</span>
+		<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>[表示結果]<br />
+<img src="/assets/img/htmlentry_4/htmlentry_4_5.jpg" alt="entry_4_1" /></p>
+
+<h3 id="aタグ">&lt;a&gt;タグ</h3>
+<p>アンカータグ。基本的にはhtmlの一番重要なタグです。このタグで囲まれた文字にはリンクというものが貼られ、クリックをすると指定したurlをブラウザに表示させることができます。</p>
+
+<p>例えばこの<a href="http://google.com" target="_blank">リンク</a>をクリックするとGoogleのサイトへ飛びます。これがアンカータグです。</p>
+
+<p>この文章は下記のように記述されています。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>
+    例えばこの<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://google.com"</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="nt">&gt;</span>リンク<span class="nt">&lt;/a&gt;</span>をクリックすると
+    Googleのサイトへ飛びます。これがアンカータグです。
+<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<p>このタグでは上記のようにhrefというプロパティの設定が必須になっています。hrefというプロパティにクリックしたときに飛ばしたいURLを記述します。</p>
+<div class="chusyaku">このhrefに前に学んだid属性を指定することもできます。href=”#id-name”とした場合、同一ページにあるid-nameというidがつけられた要素へ画面が移動します。</div>
+
+<h3 id="imgタグ">&lt;img&gt;タグ</h3>
+<p>イメージタグです。ここには画像を指定することができます。イメージタグにはaタグのように必須のプロパティがあります。イメージタグではsrcというプロパティが画像へのurlとなります。cssと同様にhtmlから見た相対的なurlを指定することが多いです。下記にimgタグを記述する手順を記載します。</p>
+
+<h4 id="イメージ用のフォルダを作ります">イメージ用のフォルダを作ります</h4>
+<p>以前作成したindex.htmlを保存したフォルダに新規フォルダを作成します。<br />
+<img src="/assets/img/htmlentry_4/htmlentry_4_6.jpg" alt="entry_4_1" /></p>
+
+<p>名前を[img]とします。（一般的に画像を保存するフォルダ名に利用される名前です）<br />
+<img src="/assets/img/htmlentry_4/htmlentry_4_7.jpg" alt="entry_4_1" /></p>
+
+<h4 id="表示させたい画像をimgフォルダにコピペします">表示させたい画像をimgフォルダにコピペします</h4>
+<p>任意の画像を今作成したフォルダに貼り付けてください。<br />
+<img src="/assets/img/htmlentry_4/htmlentry_4_8.jpg" alt="entry_4_1" /></p>
+
+<h4 id="imgタグを記述します">imgタグを記述します</h4>
+<p>下記のscr=の後の”./img/sample.png”の記号「.」は相対パスというurlの指定方法で<strong>「同じ階層の」</strong>という意味になります。</p>
+
+<ul>
+  <li>記号「.」ピリオド一つ:同じ階層を示す</li>
+  <li>記号「..」ピリオド二つ:一つ上の階層を示す</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"wrap"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"./img/sample.png"</span> <span class="na">width=</span><span class="s">"500px"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>[表示結果]<br />
+<img src="/assets/img/htmlentry_4/htmlentry_4_9.jpg" alt="entry_4_1" /></p>
+
+<h3 id="リストタグulタグとliタグ">リストタグ&lt;ul&gt;タグと&lt;li&gt;タグ</h3>
+<p>ulとliタグを利用して何かのリストを表す際に記述します。その他一般的にはWebサイトのメニューなどにも利用されます。同じ序列（意味合い）のものを箇条書きするときに使います。ulというのはliの親要素として束ねる意味で記述します&lt;ul&gt;から&lt;/ul&gt;までの子要素はひとまとめのリストですという意味のタグです。&lt;li&gt;タグはリストの一つ一つの要素という意味で記述します。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+		<span class="nt">&lt;ul&gt;</span>
+			<span class="nt">&lt;li&gt;</span>リスト一つ目<span class="nt">&lt;/li&gt;</span>
+			<span class="nt">&lt;li&gt;</span>リスト二つ目<span class="nt">&lt;/li&gt;</span>
+			<span class="nt">&lt;li&gt;</span>リスト三つ目<span class="nt">&lt;/li&gt;</span>
+		<span class="nt">&lt;/ul&gt;</span>
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<div class="chusyaku">ちなみにulタグのほかにolというタグも存在します。ulタグでは順番に意味はな一つ一つのリスト要素は「・」で区切られますがolの場合には昇順で番号がついていきます。今作成したulをolに変えて再読み込みしてみてください。</div>
+
+  <div class="paging">
+    <div class="paging-left">
+      
+        <a href="/htmlentry/2018/02/01/htmlentry3.html"><i class="material-icons paging-icon">chevron_left</i>HTML入門[第三回]HTMLを作成してみる</a>
+      
+    </div>
+    <div class="paging-right">
+      
+        <a href="/htmlentry/2018/02/01/htmlentry5.html">HTML入門[第五回]チートシート<i class="material-icons paging-icon">chevron_right</i></a>
+      
+    </div>
+  </div>
+</main>
+<aside class="content-aside">
+  <div class="aside-article">
+    <span class="aside-label">Category</span>
+    <ul class="aside-list">
+    
+    
+      <li><a href="/categories/cssappli">CSS応用</a></li>
+    
+      <li><a href="/categories/cssentry">CSS入門</a></li>
+    
+      <li><a href="/categories/environment">環境構築</a></li>
+    
+      <li><a href="/categories/htmlentry">HTML入門</a></li>
+    
+      <li><a href="/categories/htmlpre">HTML初級</a></li>
+    
+      <li><a href="/categories/htmltopic">HTML/CSSトピック</a></li>
+    
+      <li><a href="/categories/pcelement">パソコンの基礎</a></li>
+    
+    </ul>
+  </div>
+</aside>
+
+    </div>
+    <!-- page top button -->
+    <a class="btn-pagetop btn-floating btn-large brandcolor">
+      <i class="large material-icons">arrow_upward</i>
+    </a>
+    <footer class="page-footer footercolor">
+      <div class="footer-copyright">
+        <div class="container">
+          &copy;2018 Copyright
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

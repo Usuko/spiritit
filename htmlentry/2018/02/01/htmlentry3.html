@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>HTML入門[第三回]HTMLを作成してみるSpiritIt</title>
+  <!-- stylesheet -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/materialize.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/prism.css">
+  <!-- js -->
+  <script src="/assets/js/jquery/jquery.min.js"></script>
+  <script src="/assets/js/site.js"></script>
+  <script src="/assets/js/prism.js"></script>
+
+  <meta name="description" content="サイトディスクリプションを記述します
+">
+  <meta name="viewport" content="width=device-width">
+</head>
+<body>
+  <div class="content">
+    <header>
+      <nav class="brandcolor">
+        <div class="container">
+          <div class="nav-wrapper">
+            <a href="/" class="brand-logo">SpiritIt</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              
+                <li><a href="/categories/htmlentry">HTML入門</a></li>
+              
+                <li><a href="/categories/cssappli">CSS応用</a></li>
+              
+                <li><a href="/categories/cssentry">CSS入門</a></li>
+              
+                <li><a href="/categories/htmltopic">HTML/CSSトピック</a></li>
+              
+                <li><a href="/categories/htmlpre">HTML初級</a></li>
+              
+                <li><a href="/categories/pcelement">パソコンの基礎</a></li>
+              
+                <li><a href="/categories/environment">環境構築</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="content-wrap">
+      <main class="content-body">
+  <span class="post-category">HTML入門</span>
+  <h1>HTML入門[第三回]HTMLを作成してみる</h1>
+  <div class="chip">
+    <i class="material-icons v-middle">access_time</i>
+    2018年02月01日
+  </div>
+  <h2 id="とにかくhtmlを作成してみます">とにかくHTMLを作成してみます</h2>
+<p>実際に作りながら少しずつ知識を増やすのが良いです。今回は必要最低限のタグを使ってほとんど空のhtmlを作っていきます。</p>
+
+<h3 id="作業フォルダを作成">作業フォルダを作成</h3>
+<p>任意の場所にhtmlファイルを作るフォルダを作成してください。例ではc:\workspace\htmlというフォルダを作成します。自分の好きな名称でよいので作成してよいですが日本語を使ったフォルダは作らないでください。
+アルファベット、数字、アンダーバー「_」やハイフン「-」などの一部記号のみを使うのが無難です。</p>
+<div class="kome">※プログラムが扱うファイル名やディレクトリ名、urlなどは英数字以外を想定していない場合が多くあります。
+下記のようなフォルダを作ります。</div>
+<p><img src="/assets/img/htmlentry_3/htmlentry_3_0.jpg" alt="entry_3_0" /></p>
+
+<h3 id="ファイルを作成">ファイルを作成</h3>
+<h4 id="新規作成">新規作成</h4>
+<p>今回はTeraPadで作業を進めていきます。Terapadを開き上部のメニューから[ファイル]-[新規作成]をクリックします。</p>
+
+<p><img src="/assets/img/htmlentry_3/htmlentry_3_1.jpg" alt="entry_3_1" />
+<img src="/assets/img/htmlentry_3/htmlentry_3_2.jpg" alt="entry_3_2" /></p>
+
+<h4 id="保存">保存</h4>
+<p>TeraPadのメニューの[ファイル]から[文字/改行コード指定保存]をクリックします。
+<img src="/assets/img/htmlentry_3/htmlentry_3_1.jpg" alt="entry_3_1" />
+<img src="/assets/img/htmlentry_3/htmlentry_3_3.jpg" alt="entry_3_3" /></p>
+
+<p>文字コードに[utf-8]を指定して保存をクリックします。
+<img src="/assets/img/htmlentry_3/htmlentry_3_4.jpg" alt="entry_3_4" /></p>
+
+<p>保存する場所は、先ほど作成したフォルダに作ります。この場合c:\workspace\htmlという場所をしていします。ファイル名はindex.htmlとしてください。
+<img src="/assets/img/htmlentry_3/htmlentry_3_5.jpg" alt="entry_3_5" /></p>
+<div class="chusyaku">index.htmlはブラウザ等で最初に読み込まれるファイルにつける名前です。たとえばhttp://www.google.co.jpとurlを入力してページを見る場合には実際にはhttp://google.co.jp/index.htmlを読み込もうとします。細かくはサーバーの設定になるのですが特に指定がなければファイル名が省略されている場合にindex.htmlを読み込もうとします。</div>
+
+<h2 id="実際にhtmlを作成していきます">実際にHTMLを作成していきます</h2>
+<p>作成したindex.htmlにhtmlを記述していきましょう。今回は必要最低限のタグを記述していきます。</p>
+<h3 id="doctype">DOCTYPE</h3>
+<p>まずはhtmlをどのバージョンで書くかを宣言します。この場合はhtml5を書きましょう。とてもシンプルになっているので楽になりました。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</code></pre></div></div>
+<h3 id="htmlタグ">htmlタグ</h3>
+<p>次に全体をhtmlで記述するのでhtmlタグを書き足していきます。またlang=”ja”は日本語で文書を記述しますという宣言に当たります。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<h3 id="ヘッダとボディタグ">ヘッダとボディタグ</h3>
+<p>html全体の設定などを記述するhtmlヘッダと実際表示される部分を記述するbodyをくくるタグを記述します。ここからここまではヘッダですといった構造的な意味のみをもちます。このようにhtmlはhtmlタグの中にheadタグ、bodyタグを入れていくという<strong>入れ子の構造</strong>で記述していきます。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<div class="chusyaku">入れ子の構造の親子関係が分かりやすくなるように、子になるタグの記述位置をスペースでずらす（インデントをつけるといいます）のが慣例です。スペースいくつをつけるかというのは特に決まりはありませんがスペース4つ開けるのがよく見られます。<br />
+<img src="/assets/img/htmlentry_3/htmlentry_3_6.jpg" />
+</div>
+
+<h3 id="ヘッダの要素">ヘッダの要素</h3>
+<p>ヘッダタグの中にはhtml文書の設定や概要などを記述します。人間が見る部分ではなく検索エンジンやブラウザにとって必要な情報を記述する部分にあたります。ここではこのhtmlを記述する文字コードが[utf8]であるということと、htmlのタイトルを記述します。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<div class="chusyaku">htmlファイルやhtmlのheadで文字コードutf8を指定するのは理由があり基本的にはなにも考えずにutf8を利用してかまいません。utf8はアスキーコードと互換性があるためほとんどのコンピュータやプログラムで誤動作しません。その他の文字コードの場合「¥」などの記号が別のコードで使われていたりするため誤動作する場合が多々あります。簡単にいうと文字化けの原因になるので特別な指定がない限りutf8を利用してください。</div>
+
+<p>タイトルタグの表示はブラウザのタイトル欄を見てもらえばわかります。
+<img src="/assets/img/htmlentry_3/htmlentry_3_6.jpg" alt="entry_3_6" /></p>
+
+<h3 id="ボディに要素を追加">ボディに要素を追加</h3>
+<p>ボディタグには試しとして一つの段落をくくる意味でpタグ（ぴーたぐ）で何か文字を記述してみます。ここでは「初めてHTML文書をかいてみます。」という段落を書いてみましょう。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+		<span class="nt">&lt;p&gt;</span>初めてHTML文書をかいてみます。<span class="nt">&lt;/p&gt;</span>
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>図のようにボディタグに何かを記述して初めてブラウザに表示されます。
+<img src="/assets/img/htmlentry_3/htmlentry_3_8.jpg" alt="entry_3_8" /></p>
+
+<h2 id="初めてのhtmlを作成しました">初めてのHTMLを作成しました</h2>
+<p>今後はこのhtmlをベースとしていろいろなタグを使ってみたりするので現段階でわからない場合は読み返すかわからない箇所を質問してください。以降はよく使うであろうタグの説明や使ってみたところなどをまとめていきます。箇条書きすると下記のことができるようになれば大丈夫です。</p>
+
+<ul>
+  <li>作業用フォルダを作成</li>
+  <li>index.htmlを文字コードutf8で作成</li>
+  <li>DOCTYPE宣言をしてhtml5でhtmlを記述</li>
+  <li>htmlタグ,headタグ,bodyタグをインデントをつけて記述</li>
+</ul>
+
+  <div class="paging">
+    <div class="paging-left">
+      
+        <a href="/htmlentry/2018/02/01/htmlentry2.html"><i class="material-icons paging-icon">chevron_left</i>HTML入門[第二回]タグを理解する</a>
+      
+    </div>
+    <div class="paging-right">
+      
+        <a href="/htmlentry/2018/02/01/htmlentry4.html">HTML入門[第四回]HTMLでよく使うタグ<i class="material-icons paging-icon">chevron_right</i></a>
+      
+    </div>
+  </div>
+</main>
+<aside class="content-aside">
+  <div class="aside-article">
+    <span class="aside-label">Category</span>
+    <ul class="aside-list">
+    
+    
+      <li><a href="/categories/cssappli">CSS応用</a></li>
+    
+      <li><a href="/categories/cssentry">CSS入門</a></li>
+    
+      <li><a href="/categories/environment">環境構築</a></li>
+    
+      <li><a href="/categories/htmlentry">HTML入門</a></li>
+    
+      <li><a href="/categories/htmlpre">HTML初級</a></li>
+    
+      <li><a href="/categories/htmltopic">HTML/CSSトピック</a></li>
+    
+      <li><a href="/categories/pcelement">パソコンの基礎</a></li>
+    
+    </ul>
+  </div>
+</aside>
+
+    </div>
+    <!-- page top button -->
+    <a class="btn-pagetop btn-floating btn-large brandcolor">
+      <i class="large material-icons">arrow_upward</i>
+    </a>
+    <footer class="page-footer footercolor">
+      <div class="footer-copyright">
+        <div class="container">
+          &copy;2018 Copyright
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

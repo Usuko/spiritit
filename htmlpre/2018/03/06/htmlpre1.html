@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>HTML初級[第一回]-準備(textエディタ編)SpiritIt</title>
+  <!-- stylesheet -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/materialize.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/prism.css">
+  <!-- js -->
+  <script src="/assets/js/jquery/jquery.min.js"></script>
+  <script src="/assets/js/site.js"></script>
+  <script src="/assets/js/prism.js"></script>
+
+  <meta name="description" content="サイトディスクリプションを記述します
+">
+  <meta name="viewport" content="width=device-width">
+</head>
+<body>
+  <div class="content">
+    <header>
+      <nav class="brandcolor">
+        <div class="container">
+          <div class="nav-wrapper">
+            <a href="/" class="brand-logo">SpiritIt</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              
+                <li><a href="/categories/htmlentry">HTML入門</a></li>
+              
+                <li><a href="/categories/cssappli">CSS応用</a></li>
+              
+                <li><a href="/categories/cssentry">CSS入門</a></li>
+              
+                <li><a href="/categories/htmltopic">HTML/CSSトピック</a></li>
+              
+                <li><a href="/categories/htmlpre">HTML初級</a></li>
+              
+                <li><a href="/categories/pcelement">パソコンの基礎</a></li>
+              
+                <li><a href="/categories/environment">環境構築</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="content-wrap">
+      <main class="content-body">
+  <span class="post-category">HTML初級</span>
+  <h1>HTML初級[第一回]-準備(textエディタ編)</h1>
+  <div class="chip">
+    <i class="material-icons v-middle">access_time</i>
+    2018年03月06日
+  </div>
+  <p>Webサイトを作る場合には下記のような手順を取ります。</p>
+<ul>
+  <li>発信したい内容を決める（おいしいお店を他人にも見せたいなど）</li>
+  <li>表示する内容を洗い出す（お店の画像、住所、連絡先、おすすめメニューなど）</li>
+  <li>洗い出した内容などを基にデザインする</li>
+  <li>デザイン通りhtmlで記述する</li>
+  <li>公開する</li>
+</ul>
+
+<p>ここではデザイン通りhtmlで記述することのみを取りまとめ学んでいこうと思います。
+ただ、htmlを学ぶ上でデザインはとても重要なのですでにあるWebサイトとほぼ同じものを作っていきながら学んでいきましょう。</p>
+
+<h2 id="目標設定">目標設定</h2>
+<p>Spiritのトップページをテキストエディタで作成します。下記のページです。<br />
+<img src="/assets/img/htmlpre_1/spiritpage.jpg" alt="htmlpre_1" /></p>
+
+<h2 id="必要なもの">必要なもの</h2>
+<p>今回学ぶ上で必要なのはテキストディタのみです。
+巷には様々なエディタがあって便利な機能などもたくさんあります。ワープロソフトのようにある程度文字を入力すると予測してコードを書いてくれるものやhtmlのコードを色分けしてわかりやすくしたり様々です。</p>
+
+<p>が</p>
+
+<p>テキストエディタ、html初めてという場合は<strong>TeraPad</strong>を利用してください。
+テラパッドの用意は別途<a href="/environment/2018/03/09/EnvTerapad.html" target="_blank">こちら</a>参照してください。</p>
+
+<p>なぜかというと・・・</p>
+
+<p>最初から予測変換などフルの補助機能を使ってしまうとそのソフトには慣れて早くなるかもしれません。
+ところがツールが裏で何をしてくれているかをわからない場合あとあと少し困ったことになります。
+htmlを書くPCなどの環境が変わったとたん何もできなくなってしまったり新しいツールになれる時間が必要になってしまいます。</p>
+<div class="chusyaku">htmlを学ぶことが重要ではない場合にはブログなどのサービスを利用することのほうが早いです。現在のブログなどのサービスははほとんどHTMLがわからなくても簡単に記事を書くことができます。</div>
+
+<h2 id="説明に使う用語">説明に使う用語</h2>
+<p>説明する際にHTMLでの用語を時々使いますが下記の用語は入門などで説明済みなので意味などは割愛します。</p>
+
+<p>説明中出てきそうな用語はこちらに簡単な説明を書いておきます。わからないときはちらちら見ながら説明を読んでみてください。</p>
+
+<h3 id="html">HTML</h3>
+<p>下記はHTMLファイルをテキストエディタで開いた時の内容です。<br />
+下記のような記号だらけのページですが説明する際に下記の用語を使います。詳細については別途HTMLの入門などを見てください。
+<img src="/assets/img/htmlpre_1/htmlpre_1_2.jpg" alt="htmlpre_1" /></p>
+<h4 id="タグ">タグ</h4>
+<p>記号の大なり小なりで囲まれた文字をタグと呼んでいます。このtagnameの部分に何を書くかで意味が変わってきます。下記のようにこの何を書くかの部分をタグ名と呼んでいます。</p>
+
+<h4 id="開始タグ終了タグ">開始タグ　終了タグ</h4>
+<p>タグには開始タグと終了タグがあり、終了タグは開始タグの最初にバックスラッシュ（/）の記号が付いたものになります。
+基本的に、すべてのHTMLの内容は開始タグと終了タグに挟まれて書かれることでコンピュータが意味を理解できます。</p>
+
+<p>下記では「文章あああああ」という内容をスパンタグで囲ってあり、コンピュータは「文章あああああ」をspanであると解釈してディスプレイに表示します。</p>
+
+<h4 id="要素子要素">要素　子要素</h4>
+<p>タグで囲まれた部分を要素（時にはまとめてタグといいます）と呼びます。また、要素の中にもタグは記述できます。その際中のタグは子要素といわれます。</p>
+
+<h3 id="css">CSS</h3>
+<p><img src="/assets/img/htmlpre_1/htmlpre_1_3.jpg" alt="htmlpre_1" /></p>
+
+<h4 id="セレクタ">セレクタ</h4>
+<p>CSSではHTMLを修飾する際に修飾する先を指定します。その指定する記号の部分を<strong>セレクタ</strong>と呼びます。
+セレクタの種類は様々ありますが<a href="/cssentry/2018/02/01/cssentry2.html" target="_blank">別途入門</a>などを見てください。</p>
+
+<h4 id="プロパティ">プロパティ</h4>
+<p>セレクタで指定したあとの括弧｛から｝の間にある記述でその指定先の文字や画像などの見た目を装飾します。
+装飾する種類には色や太さや形など様々ありますがその指定を<strong>プロパティ</strong>と呼びます。</p>
+
+<h4 id="値プロパティの値">値（プロパティの値）</h4>
+<p>プロパティで指定した内容を値で決定します。色なら赤や青などの色情報、太さならどれくらいの太さかなどを値に指定します。</p>
+
+<p>たとえば下記のような記述では、h1というタグすべての文字色を赤にしてくださいという指示に当たります。</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">h1</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span><span class="no">red</span> <span class="p">}</span>
+</code></pre></div></div>
+
+  <div class="paging">
+    <div class="paging-left">
+      
+        <a href="/htmltopic/2018/02/01/htmltopic_1.html"><i class="material-icons paging-icon">chevron_left</i>HTML CSS JavaScriptではこんなことができます</a>
+      
+    </div>
+    <div class="paging-right">
+      
+        <a href="/htmlpre/2018/03/06/htmlpre2.html">HTML初級[第二回]-デザイン<i class="material-icons paging-icon">chevron_right</i></a>
+      
+    </div>
+  </div>
+</main>
+<aside class="content-aside">
+  <div class="aside-article">
+    <span class="aside-label">Category</span>
+    <ul class="aside-list">
+    
+    
+      <li><a href="/categories/cssappli">CSS応用</a></li>
+    
+      <li><a href="/categories/cssentry">CSS入門</a></li>
+    
+      <li><a href="/categories/environment">環境構築</a></li>
+    
+      <li><a href="/categories/htmlentry">HTML入門</a></li>
+    
+      <li><a href="/categories/htmlpre">HTML初級</a></li>
+    
+      <li><a href="/categories/htmltopic">HTML/CSSトピック</a></li>
+    
+      <li><a href="/categories/pcelement">パソコンの基礎</a></li>
+    
+    </ul>
+  </div>
+</aside>
+
+    </div>
+    <!-- page top button -->
+    <a class="btn-pagetop btn-floating btn-large brandcolor">
+      <i class="large material-icons">arrow_upward</i>
+    </a>
+    <footer class="page-footer footercolor">
+      <div class="footer-copyright">
+        <div class="container">
+          &copy;2018 Copyright
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

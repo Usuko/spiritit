@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>HTML初級[第三回]-全体のレイアウト作成SpiritIt</title>
+  <!-- stylesheet -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/materialize.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/prism.css">
+  <!-- js -->
+  <script src="/assets/js/jquery/jquery.min.js"></script>
+  <script src="/assets/js/site.js"></script>
+  <script src="/assets/js/prism.js"></script>
+
+  <meta name="description" content="サイトディスクリプションを記述します
+">
+  <meta name="viewport" content="width=device-width">
+</head>
+<body>
+  <div class="content">
+    <header>
+      <nav class="brandcolor">
+        <div class="container">
+          <div class="nav-wrapper">
+            <a href="/" class="brand-logo">SpiritIt</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              
+                <li><a href="/categories/htmlentry">HTML入門</a></li>
+              
+                <li><a href="/categories/cssappli">CSS応用</a></li>
+              
+                <li><a href="/categories/cssentry">CSS入門</a></li>
+              
+                <li><a href="/categories/htmltopic">HTML/CSSトピック</a></li>
+              
+                <li><a href="/categories/htmlpre">HTML初級</a></li>
+              
+                <li><a href="/categories/pcelement">パソコンの基礎</a></li>
+              
+                <li><a href="/categories/environment">環境構築</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="content-wrap">
+      <main class="content-body">
+  <span class="post-category">HTML初級</span>
+  <h1>HTML初級[第三回]-全体のレイアウト作成</h1>
+  <div class="chip">
+    <i class="material-icons v-middle">access_time</i>
+    2018年03月06日
+  </div>
+  <h2 id="まずは空のページを作成します">まずは空のページを作成します。</h2>
+<p>まずは好きな作業用のフォルダを作成しそこにcssフォルダとindex.htmlという空のファイルを作成してください。index.htmlはutf-8という文字コードで保存します。わからない場合<a href="/htmlentry/2018/02/01/htmlentry3.html" target="_blank">こちら</a>を参照してください。</p>
+
+<p>参考ではc:\workspace\htmlというフォルダに作成します。どこでも構いません。
+下記のような構成になります。<br />
+<img src="/assets/img/htmlpre_3/htmlpre_3_1.jpg" alt="htmlpre_3" /></p>
+
+<p>index.htmlを開いて作業を続けます。</p>
+
+<h2 id="空のhtmlページを作成">空のhtmlページを作成</h2>
+<p>まずは空のhtmlページを作成します。これについてもわからない場合<a href="/htmlentry/2018/02/01/htmlentry3.html">こちら</a>を参考にして理解してください。</p>
+
+<p>下記のコードをindex.htmlに記述します。</p>
+<div class="chusyaku">htmlファイルを開く際に、ファイルをダブルクリックするとブラウザで表示してしまいます。編集したい場合はファイルを右クリックしてプロジェクトから開くなどで開いてください</div>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+	<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"/css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;title&gt;</span>サンプル<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<h2 id="空のcssファイルを作成">空のCSSファイルを作成</h2>
+<p>上記index.htmlを作成したのと同様にcssというフォルダの中にstyle.cssというファイルを作成してください。このファイルも保存する際に文字コードをutf-8を指定して保存します。</p>
+
+<p><img src="/assets/img/htmlpre_3/htmlpre_3_3.jpg" alt="htmlpre_3" /><br />
+上記のようにファイルが作成されていればよいです。</p>
+
+<p>上記は本当に必要最低限の空のHTMLでブラウザでは何も表示されません。
+以降では主にこのファイルにコードを書き足していきます。</p>
+
+<h2 id="レイアウトを構成を記述">レイアウトを構成を記述</h2>
+<p>まずはレイアウトを作っていきます。Webサイトのメインで表示される部分は基本的にbodyタグの中身なので。まずはbodyタグの中にレイアウトを記述していきます。</p>
+<div class="chusyaku">bodyタグの中といった場合、&lt;body&gt;から&lt;/body&gt;に挟まれた間のことを指します。</div>
+
+<p>前回のまとめですと大きなレイアウトは下記の４つのパーツから構成されています。</p>
+<ul>
+  <li>ヘッダ</li>
+  <li>メニュー</li>
+  <li>メイン</li>
+  <li>フッター</li>
+</ul>
+
+<p><img src="/assets/img/htmlpre_3/htmlpre_3_2.jpg" alt="htmlpre_3" /></p>
+
+<p>大きなレイアウトを構成する場合基本的にはdivというタグを使います。Divisionの略で分割といった意味です。意味のとおりそのdivタグで意味を分割します。手始めにこのdivタグをレイアウト分４つ作成します。先ほどのindex.htmlを編集し下記のように変更してください。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+	<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;title&gt;</span>サンプル<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+
+	<span class="nt">&lt;div&gt;</span>
+		ヘッダ
+	<span class="nt">&lt;/div&gt;</span>
+
+	<span class="nt">&lt;div&gt;</span>
+		メニュー
+	<span class="nt">&lt;/div&gt;</span>
+
+	<span class="nt">&lt;div&gt;</span>
+		メイン
+	<span class="nt">&lt;/div&gt;</span>
+
+	<span class="nt">&lt;div&gt;</span>
+		フッタ
+	<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>編集が終わったらindex.htmlをダブルクリックして開いてみてましょう。
+ヘッダ、メニューなどといった文字は表示されますが目的のようなレイアウトにはなっていません。</p>
+
+<p>気づいてる人もいると思いますが、まだメニューとメインの部分は横に並べるなどといった表示に関する内容をどこにも書いていません。
+頭の中には上の図のようなレイアウトにしたいのですがそれをコンピュータに教えなくてはいけません。それが<strong>CSS</strong>です。</p>
+
+<h2 id="html5の書き方をする">html5の書き方をする</h2>
+<p>と、今までであれば基本的にレイアウトはdivというタグで区切っていました。ですが現在のほとんどのWebサイトはこれと同じような構成でつくられています。見出しなどをコンピュータにわかりやすくするためにタグも増えました。</p>
+
+<p>折角なので存在するタグは利用してみましょう。上記のコードを再度編集して下記のコードのしてください。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+	<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;title&gt;</span>サンプル<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+
+	<span class="nt">&lt;header&gt;</span>
+		ヘッダ
+	<span class="nt">&lt;/header&gt;</span>
+
+	<span class="nt">&lt;aside&gt;</span>
+		メニュー
+	<span class="nt">&lt;/aside&gt;</span>
+
+	<span class="nt">&lt;main&gt;</span>
+		メイン
+	<span class="nt">&lt;/main&gt;</span>
+
+	<span class="nt">&lt;footer&gt;</span>
+		フッタ
+	<span class="nt">&lt;/footer&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>ダブルクリックして開いても表示に変化はありません。なぜこのようなことをするのかというとコンピュータが読みやすいようにしています。このタグを使うことでコンピュータはmainの部分がこのサイトの構成を把握できます。そのためコンピュータが利用しやすいサイトになります。</p>
+
+<h2 id="分かりやすいようにcssを適用して背景色を変える">分かりやすいようにCSSを適用して背景色を変える</h2>
+<p>今のままデザインを変更していっても少しわかりにくいです。いったんこの部分ごとに背景色をつけて今どのようにレイアウトされているかを確認していきましょう。</p>
+
+<p>先ほど作成したstyle.cssに下記記述をコピーして貼り付けてください。</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">header</span><span class="p">{</span>
+	<span class="nl">background-color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">aside</span><span class="p">{</span>
+	<span class="nl">background-color</span><span class="p">:</span><span class="no">blue</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">main</span><span class="p">{</span>
+	<span class="nl">background-color</span><span class="p">:</span><span class="no">green</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">footer</span><span class="p">{</span>
+	<span class="nl">background-color</span><span class="p">:</span><span class="no">yellow</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>index.htmlを再度読み込むと下記のように色が分かれて表示されます。これで今どのようにレイアウトされているかがわかります。現状では単純に四角いエリアが四段重なっているだけですね。</p>
+
+<p><img src="/assets/img/htmlpre_3/htmlpre_3_4.jpg" alt="htmlpre_3" /></p>
+
+<p>それではひとつづサイトを目標に近づけていきましょう。</p>
+
+<h2 id="コンテンツの幅を設定する">コンテンツの幅を設定する</h2>
+<p>いったんお手本であるSpiritのサイトを見てみましょう。ウインドウのサイズの幅を伸び縮みさせているとわかるのですがこのサイトに限らずほとんどのサイトはコンテンツの幅が決まっていて画面の中央に表示されています。</p>
+
+<p>余った部分が余白として伸び縮して中のコンテンツの幅は固定されています。　　
+<img src="/assets/img/htmlpre_3/htmlpre_3_5.jpg" alt="htmlpre_3" /></p>
+
+<p>このコンテンツの幅を固定して中央に表示するにはまずサイト全体をdivタグの中に入れる必要があります。
+ここで、サイト全体といった場合bodyタグの下に当たります。ブラウザで表示されている部分はbodyタグの中が基本です。</p>
+
+<h3 id="実際に作業してみます">実際に作業してみます</h3>
+<p>まずコンテンツ全体というものを把握します。下記の図のようにbodyの中の要素をさしてサイト全体といっています。<br />
+<img src="/assets/img/htmlpre_3/htmlpre_3_6.jpg" alt="htmlpre_3" />　</p>
+
+<p>ではサイト全体をdivタグの中に入れるという作業を行います。</p>
+
+<h3 id="divタグを挿入してサイト全体を区切る">divタグを挿入してサイト全体を区切る</h3>
+<h4 id="タグの挿入">タグの挿入</h4>
+<p>まずbodyタグとサイト全体の初めのタグであるheaderタグの間にdivタグ（クラスにcontentを指定）を挿入します。<br />
+<img src="/assets/img/htmlpre_3/htmlpre_3_7.jpg" alt="htmlpre_3" />　</p>
+
+<h4 id="終了タグの挿入">終了タグの挿入</h4>
+<p>始めたタグは閉じます。サイト全体であったfooterの終了タグとbodyの終了タグの間にdivの終了タグを挿入します。<br />
+<img src="/assets/img/htmlpre_3/htmlpre_3_8.jpg" alt="htmlpre_3" />　</p>
+
+<h4 id="コードを見やすくする">コードを見やすくする</h4>
+<p>タグの親子関係はとても分かりにくくなるのでサイト全体に<strong>インデント</strong>をつけます。インデントは段落みたいなもので下記のようにします。</p>
+
+<p>まずサイト全体としていたheaderタグからfooterの終了タグまでの行をドラッグして反転させます。<br />
+<img src="/assets/img/htmlpre_3/htmlpre_3_9.jpg" alt="htmlpre_3" />　</p>
+
+<p>そのまま、キーボードの[Tab]キーを一回おします。<br />
+押しすぎた場合[Shiftキーを押しながらTab]を押すと戻ります。<br />
+<img src="/assets/img/htmlpre_3/htmlpre_3_10.jpg" alt="htmlpre_3" />　</p>
+
+<p>選択されたコードの前すべてにTab文字が挿入されてコードが見やすくなります。（インデントが付きます）<br />
+この状態で保存ボタンなどをおしてファイルを保存します。<br />
+<img src="/assets/img/htmlpre_3/htmlpre_3_11.jpg" alt="htmlpre_3" />　</p>
+
+<h3 id="cssに上記で指定したクラスを追加する">CSSに上記で指定したクラスを追加する</h3>
+<p>クラスを追加してみます。ついでにコンテンツの幅を設定しコンテンツを中央に配置してみます。</p>
+
+<p>cssを開き先ほどhtmlで指定した<strong>.content</strong>というクラスを追記します。
+cssを追記するといった場合下記のように、セレクタからプロパティをまとめる記号の{}で一つのまとまりとして追加します。この設定の記述がひとまとめなので重なったりする記述はありません。
+<img src="/assets/img/htmlpre_3/htmlpre_3_12.jpg" alt="htmlpre_3" />　</p>
+
+<p>このクラスの定義の{　}の間に幅などを指定します。今回指定するのは幅と余った幅は余白を表示するという設定です。<br />
+<img src="/assets/img/htmlpre_3/htmlpre_3_13.jpg" alt="htmlpre_3" />　</p>
+
+<div class="chusyaku">marginとはその要素の周囲の余白の設定を指します。autoは余白がある場合中身の要素が中央に表示されるよう自動で計算してくれるプロパティ値です</div>
+
+<p>これでindex.htmlをブラウザで見てみると、少しわかりにくいかもしれませんがコンテンツが940pxで余白がある場合中央に表示されるサイトになりました。<br />
+<img src="/assets/img/htmlpre_3/htmlpre_3_14.jpg" alt="htmlpre_3" />　</p>
+
+  <div class="paging">
+    <div class="paging-left">
+      
+        <a href="/htmlpre/2018/03/06/htmlpre2.html"><i class="material-icons paging-icon">chevron_left</i>HTML初級[第二回]-デザイン</a>
+      
+    </div>
+    <div class="paging-right">
+      
+        <a href="/pcelement/2018/03/09/pcelement_1.html">Windows7の基本操作（用語１）<i class="material-icons paging-icon">chevron_right</i></a>
+      
+    </div>
+  </div>
+</main>
+<aside class="content-aside">
+  <div class="aside-article">
+    <span class="aside-label">Category</span>
+    <ul class="aside-list">
+    
+    
+      <li><a href="/categories/cssappli">CSS応用</a></li>
+    
+      <li><a href="/categories/cssentry">CSS入門</a></li>
+    
+      <li><a href="/categories/environment">環境構築</a></li>
+    
+      <li><a href="/categories/htmlentry">HTML入門</a></li>
+    
+      <li><a href="/categories/htmlpre">HTML初級</a></li>
+    
+      <li><a href="/categories/htmltopic">HTML/CSSトピック</a></li>
+    
+      <li><a href="/categories/pcelement">パソコンの基礎</a></li>
+    
+    </ul>
+  </div>
+</aside>
+
+    </div>
+    <!-- page top button -->
+    <a class="btn-pagetop btn-floating btn-large brandcolor">
+      <i class="large material-icons">arrow_upward</i>
+    </a>
+    <footer class="page-footer footercolor">
+      <div class="footer-copyright">
+        <div class="container">
+          &copy;2018 Copyright
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>CSS入門[第一回]CSSとはなにかSpiritIt</title>
+  <!-- stylesheet -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/materialize.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/prism.css">
+  <!-- js -->
+  <script src="/assets/js/jquery/jquery.min.js"></script>
+  <script src="/assets/js/site.js"></script>
+  <script src="/assets/js/prism.js"></script>
+
+  <meta name="description" content="サイトディスクリプションを記述します
+">
+  <meta name="viewport" content="width=device-width">
+</head>
+<body>
+  <div class="content">
+    <header>
+      <nav class="brandcolor">
+        <div class="container">
+          <div class="nav-wrapper">
+            <a href="/" class="brand-logo">SpiritIt</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              
+                <li><a href="/categories/htmlentry">HTML入門</a></li>
+              
+                <li><a href="/categories/cssappli">CSS応用</a></li>
+              
+                <li><a href="/categories/cssentry">CSS入門</a></li>
+              
+                <li><a href="/categories/htmltopic">HTML/CSSトピック</a></li>
+              
+                <li><a href="/categories/htmlpre">HTML初級</a></li>
+              
+                <li><a href="/categories/pcelement">パソコンの基礎</a></li>
+              
+                <li><a href="/categories/environment">環境構築</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="content-wrap">
+      <main class="content-body">
+  <span class="post-category">CSS入門</span>
+  <h1>CSS入門[第一回]CSSとはなにか</h1>
+  <div class="chip">
+    <i class="material-icons v-middle">access_time</i>
+    2018年02月01日
+  </div>
+  <h2 id="cssが作られた理由と特徴">CSSが作られた理由と特徴</h2>
+<p>CSSはhtmlの装飾（見た目）に関する記述をするために作られました。
+HTMLはコンピュータでも読めるような文章なのでHTML単体では人間に見やすいとは言えません。</p>
+
+<p>現実の本においても、本を最初に書く人は原稿というものがあります。原稿がHTMLに当たります。
+本を作る過程においてはその原稿をもとに表紙をつけたり文字に色を付けたり、部分的に文字を太くしたりとした作業を編集者が行います。</p>
+
+<p>この編集者がCSSに当たります。
+人間が見やすいようにCSSという別の指示書を使って文章を飾っていきます。</p>
+
+<p>要点は３点です</p>
+
+<ul>
+  <li>CSSを使いHTMLの見た目を装飾することができる</li>
+  <li>HTMLとCSSが両方あって人が見やすい文章が出来上がります</li>
+  <li>文章をみるアプリケーションであるブラウザによってCSSの読み方が違う場合がある</li>
+</ul>
+
+<div class="chusyaku">htmlが生まれて現在に至るまでにさまざまな企業や団体がブラウザを作りシェアを競う形になりました。そのためブラウザによって使えるタグや使えないタグ、同じように使えるCSS使えないCSSなどブラウザによって動きが違うといった結果を招き、Web製作者やWebプログラマや閲覧者を悩ませ続けてきました、現在でも名残はあります。
+ただ、html5とcss3に至った現在ではcssは外部に記述するという点ではそろそろ浸透してきておりhtmlに装飾要素を記述する技術者も減ってきております。cssを学ぶ上で「装飾に関する記述はHTMLから切り離す」ということを前提に学習すると理解が早まるかもしれません。</div>
+
+<h2 id="htmlとcssの仕組み">HTMLとCSSの仕組み</h2>
+<p>HTMLはタグで記述されています。HTMLのままの文書はページタイトルや本文、目次、画像など文書の構造をタグで区切られて記述されています。CSSはそのHTMLのタグを装飾する記述を書くものです。文字の大きさや色などをプロパティといい、HTMLのどの部分をそのプロパティで修飾するのかということをセレクタというもので指定します。
+このHTMLとCSS双方をブラウザが理解し表示しています。<br />
+<img src="/assets/img/cssentry_1/cssentry_1_1.jpg" alt="css_entry1" /></p>
+
+<p>具体的なCSSは下記のように記述されます。セレクタ、プロパティ等の意味は下記の意味です。</p>
+
+<ul>
+  <li>セレクタ：どのタグを装飾するかを指定するもの</li>
+  <li>プロパティ：セレクタで指定したタグを装飾する種類を指定する（色やサイズ、表示位置など）</li>
+  <li>プロパティ値：プロパティの実際の値（色なら赤や青、サイズなら大文字や小文字など）</li>
+</ul>
+
+<p><img src="/assets/img/cssentry_1/cssentry_1_2.jpg" alt="css_entry1" /></p>
+
+<h2 id="cssを記述する場所">CSSを記述する場所</h2>
+<p>CSSを記述する場所は３種類あります。下記に一つずつ書き方を説明していきます。ここではCSSの細かい書き方を理解する必要はなくCSSをどこに書けばいいかという書き方を理解してください。</p>
+
+<h3 id="headタグにstyleタグで記述して読み込み">HEADタグにSTYLEタグで記述して読み込み</h3>
+<p>html入門で作成した単純なhtmlを利用します。
+下記のように<style>CSSの記述</style>とstyleタグの要素にCSSを記述することで文書全体にCSSを反映させることができます。</p>
+
+<p>TeraPadを新規に立ち上げてください。
+そこに下に記述したコードをコピーして貼り付けます。<br />
+<img src="/assets/img/cssentry_1/cssentry_1_4.jpg" alt="css_entry1" /></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+
+		<span class="nt">&lt;</span><span class="err">!下記がスタイルシートです</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;style&gt;</span>
+			<span class="nt">p</span><span class="p">{</span>
+				<span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="nt">&lt;/style&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+		<span class="nt">&lt;p&gt;</span>初めてHTML文書をかいてみます。<span class="nt">&lt;/p&gt;</span>
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>メニューから文字コードを指定して保存します。
+<img src="/assets/img/cssentry_1/cssentry_1_5.jpg" alt="css_entry1" /></p>
+
+<p>文字コードにutf-8を選択してOKボタンを押します<br />
+<img src="/assets/img/cssentry_1/cssentry_1_6.jpg" alt="css_entry1" /></p>
+<div class="chusyaku">文字コードとは何でしょうか。今現在この文字は日本語になっていますがパソコンの中身には数字（コード）のみが記憶されています。普通のデータもhtmlと同じようにコンピュータが読めるようにコードが保存されていますが人間が見れるように変換しなくてはいけません。その変換に使われるコードが文字コードです。utf-8という文字コードは世界中で標準的に使われているのでhtmlでは一般的にutf-8を使用します。</div>
+
+<p>sample1.htmlとして保存します。
+<img src="/assets/img/cssentry_1/cssentry_1_7.jpg" alt="css_entry1" /></p>
+
+<p>保存したsample1.htmlをダブルクリックしてみましょう。内容が表示されるはずです。
+上記コードの<strong>style</strong>の部分がCSSです。pタグのcolor(色を）red（赤）にしますという意味です。
+表示結果は指定通りpタグで記述した文字の色が赤くなって表示されます。<br />
+[表示結果]<br />
+<img src="/assets/img/cssentry_1/cssentry_1_8.jpg" alt="css_entry1" /></p>
+
+<h3 id="外部ファイルに記述して読み込み">外部ファイルに記述して読み込み</h3>
+<p>まず、外部ファイルを作成します。一般的にはindex.htmlのあるフォルダにcssというフォルダを作成します。下記のようになります。</p>
+
+<p>上記sample1.htmlを保存した場所にcssというフォルダを新規に作成してください。
+<img src="/assets/img/cssentry_1/cssentry_1_9.jpg" alt="css_entry1" /></p>
+
+<p>このcssフォルダの中に先ほどと同じようにstyle.cssというファイルを新規に作成してください。
+中身のコードは下記のものをコピーして貼り付けます。</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span><span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="no">blue</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>下記のようにファイルが保存されているはずです。<br />
+<img src="/assets/img/cssentry_1/cssentry_1_10.jpg" alt="css_entry1" /></p>
+
+<p>sample1.htmlというフォルダに戻り、これも同じようにsample2.htmlというファイルを新規に作成してください。
+内容は下記のコードをコピーして貼り付けます。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+		<span class="nt">&lt;p&gt;</span>初めてHTML文書をかいてみます。<span class="nt">&lt;/p&gt;</span>
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+<span class="nt">&lt;/pre&gt;</span>
+</code></pre></div></div>
+
+<p>下記のようにsample2.htmlが作成したのでダブルクリックで開いてみます。
+先ほどと同じように文字が赤く表示されていればOKです。<br />
+<img src="/assets/img/cssentry_1/cssentry_1_11.jpg" alt="css_entry1" /></p>
+
+<p>上記コードの<span class="text_b_red">&lt;link rel=”stylesheet” href=”./css/style.css”&gt;</span>という部分は
+css（スタイルシート）は”./css/style.css”という場所に書きましたという情報です。
+コンピュータはhtmlを読むときにこのstyle.cssというファイルも読み込み表示してくれます。</p>
+<div class="chusyaku">./css/style.cssは相対パスという記述方法です。「.」の意味はこのファイルを起点にする意味で使います。つまりこのindex.htmlのフォルダから見た/css/style.cssという意味になります。</div>
+
+<p>この記述方法は最も一般的です。HTMLとCSSを完全に切り離して管理できます。そして開発する人やデザイナーもこの方法になれています。</p>
+
+<h3 id="タグの属性に直接スタイルを記述">タグの属性に直接スタイルを記述</h3>
+<p>下記のようにタグに直接style属性という属性を使い記述します。下記ではPタグに直接修飾するcssを記述しています。<br />
+<span class="kome">※この書き方は非推奨でもあるので見るだけで良いです。</span></p>
+
+<p>下記のようにタグに直接スタイルを記述します。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+
+		<span class="nt">&lt;p</span> <span class="na">style=</span><span class="s">"color:red"</span><span class="nt">&gt;</span>初めてHTML文書をかいてみます。<span class="nt">&lt;/p&gt;</span>
+
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>現在この方法で開発するメリットはなしといってよいです。ためしに記述してみてよかったらきちんと記述するといった形で使われることは有りましたが、エディタも発達しているしSassやjQueryなどの技術もあるためタグに直接スタイルを記述するこの方式は管理面からもやらないほうがよいです。</p>
+
+<h2 id="まとめ">まとめ</h2>
+<p>上記のように３種類のcssの読み込み方法を書きましたが最後のタグに直接記述する方法は基本的には使わないでください。現在では非推奨の記述方法（ですがブラウザでは気を聞かせて動作してしまいます）です。冒頭で記述したようにhtmlと切り離すという目的から外れてしまった機能のため現在では非推奨となっております。ただし、プログラム開発やWebページ作成時に一時的に直接タグに書く場合がたまにあるので覚えておいてください。
+まとめとして箇条書きにすると</p>
+
+<ul>
+  <li>装飾に関する記述はhtmlから切り離しcssで記述する</li>
+  <li>ブラウザによってcssの動きが違う場合がある</li>
+  <li>cssは<style>タグで記述する方法がある</style></li>
+  <li>cssは外部ファイルに記述する方法がある</li>
+  <li>cssはタグに直接記述する方法がある</li>
+  <li>cssでは装飾する対象をセレクタというもので指定する</li>
+  <li>装飾する種類（色やサイズ）などをプロパティと呼ぶ</li>
+  <li>装飾するものの実際の指定（色なら赤や青、サイズなら大文字や小文字）などをプロパティ値と呼ぶ</li>
+</ul>
+
+<p>上記の点をここでは扱いました。</p>
+
+  <div class="paging">
+    <div class="paging-left">
+      
+        <a href="/cssappli/2018/02/01/cssapp3.html"><i class="material-icons paging-icon">chevron_left</i>【ツール】HTML CSSの開発補助</a>
+      
+    </div>
+    <div class="paging-right">
+      
+        <a href="/cssentry/2018/02/01/cssentry2.html">CSS入門[第二回]セレクタ<i class="material-icons paging-icon">chevron_right</i></a>
+      
+    </div>
+  </div>
+</main>
+<aside class="content-aside">
+  <div class="aside-article">
+    <span class="aside-label">Category</span>
+    <ul class="aside-list">
+    
+    
+      <li><a href="/categories/cssappli">CSS応用</a></li>
+    
+      <li><a href="/categories/cssentry">CSS入門</a></li>
+    
+      <li><a href="/categories/environment">環境構築</a></li>
+    
+      <li><a href="/categories/htmlentry">HTML入門</a></li>
+    
+      <li><a href="/categories/htmlpre">HTML初級</a></li>
+    
+      <li><a href="/categories/htmltopic">HTML/CSSトピック</a></li>
+    
+      <li><a href="/categories/pcelement">パソコンの基礎</a></li>
+    
+    </ul>
+  </div>
+</aside>
+
+    </div>
+    <!-- page top button -->
+    <a class="btn-pagetop btn-floating btn-large brandcolor">
+      <i class="large material-icons">arrow_upward</i>
+    </a>
+    <footer class="page-footer footercolor">
+      <div class="footer-copyright">
+        <div class="container">
+          &copy;2018 Copyright
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

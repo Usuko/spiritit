@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>CSS入門[第四回]よく使うCSSプロパティ（ボックス）SpiritIt</title>
+  <!-- stylesheet -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/materialize.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/prism.css">
+  <!-- js -->
+  <script src="/assets/js/jquery/jquery.min.js"></script>
+  <script src="/assets/js/site.js"></script>
+  <script src="/assets/js/prism.js"></script>
+
+  <meta name="description" content="サイトディスクリプションを記述します
+">
+  <meta name="viewport" content="width=device-width">
+</head>
+<body>
+  <div class="content">
+    <header>
+      <nav class="brandcolor">
+        <div class="container">
+          <div class="nav-wrapper">
+            <a href="/" class="brand-logo">SpiritIt</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              
+                <li><a href="/categories/htmlentry">HTML入門</a></li>
+              
+                <li><a href="/categories/cssappli">CSS応用</a></li>
+              
+                <li><a href="/categories/cssentry">CSS入門</a></li>
+              
+                <li><a href="/categories/htmltopic">HTML/CSSトピック</a></li>
+              
+                <li><a href="/categories/htmlpre">HTML初級</a></li>
+              
+                <li><a href="/categories/pcelement">パソコンの基礎</a></li>
+              
+                <li><a href="/categories/environment">環境構築</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="content-wrap">
+      <main class="content-body">
+  <span class="post-category">CSS入門</span>
+  <h1>CSS入門[第四回]よく使うCSSプロパティ（ボックス）</h1>
+  <div class="chip">
+    <i class="material-icons v-middle">access_time</i>
+    2018年02月01日
+  </div>
+  <h2 id="よく使うボックス系プロパティ">よく使うボックス系プロパティ</h2>
+<p>現在では様々なWebサイトがあります。タグで表現された要素は基本的には四角い形をしてパネルのように敷き詰められてWebサイトがデザインされています。その四角い形の要素をCSSでデザインできるのでそのプロパティを見ていきましょう。<br />
+<img src="/assets/img/cssentry_4/cssentry_4_1.jpg" alt="cssentry_4" /></p>
+
+<h3 id="サイズ">サイズ</h3>
+<p>ボックスのサイズを指定してみましょう。サイズはwidthというプロパティとheightというプロパティで設定可能です。</p>
+
+<ul>
+  <li><strong>width:</strong>横幅を指定</li>
+  <li><strong>height:</strong>縦幅を指定<br />
+このプロパティに設定するプロパティ値は%やpxで指定して行きます。今回はサイズに関しては基本的なことしか書きませんが実はいろいろ細かい設定や知識が必要です。</li>
+  <li><strong>%指定</strong><br />
+%で指定すると基本的にはブラウザ横幅に対するパーセンテージで表示されます。
+※縦幅の%指定は横幅とは少し違います。縦幅を指定した要素の子要素の場合にのみ%指定が算出されます。</li>
+  <li><strong>px指定</strong><br />
+ピクセルという単位で大きさが指定できます。基本的には画面解像度と考えてよいです。その単位で指定をすることができます。</li>
+</ul>
+
+<p>下記のような記述で指定できます。・・・・がこの段階ではボックスは色も境目も書かれていないためどのような形かわかりません。次の色指定と合わせて確認していきましょう。</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.box1</span><span class="p">{</span>
+	<span class="nl">width</span><span class="p">:</span><span class="m">50%</span><span class="p">;</span>
+	<span class="nl">height</span><span class="p">:</span><span class="m">300px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="背景色">背景色</h3>
+<p>背景色を変えてみましょう。背景色はbackground-colorというプロパティで装飾することができます。プロパティ値の種類はfontで見た文字色とおなじで下記の４種類です。</p>
+
+<ul>
+  <li>RGB値-#000000のよう16進数6桁で表現</li>
+  <li>RGB値短縮-#000のように16進数3桁で表現</li>
+  <li>RGB10進数-rgb(0,0,0)のようにRGB値を直接指定する表現</li>
+  <li>変数-redのようにあらかじめ指定されている色を指定</li>
+</ul>
+
+<p>[style.css]</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.aka</span><span class="p">{</span>
+    <span class="nl">background-color</span><span class="p">:</span><span class="m">#ff0000</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.blue</span><span class="p">{</span>
+    <span class="nl">background-color</span><span class="p">:</span><span class="m">#00f</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.yellow</span><span class="p">{</span>
+    <span class="nl">background-color</span><span class="p">:</span><span class="nb">rgb</span><span class="p">(</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nc">.green</span><span class="p">{</span>
+    <span class="nl">background-color</span><span class="p">:</span><span class="no">green</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>[index.html]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"aka"</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"blue"</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"yellow"</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"green"</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>[表示結果]<br />
+<img src="/assets/img/cssentry_4/cssentry_4_2.jpg" alt="cssentry_4" /></p>
+
+<h3 id="ボーダー枠線">ボーダー（枠線）</h3>
+<p>枠線を引いてみましょう。borderというプロパティで枠線を記述できます。しかしながらborderというプロパティは様々な派生のプロパティとプロパティ値の指定があります。まずは四方すべての枠線を記述する書き方ですが</p>
+
+<p><strong>border:線の太さ 線の形 線の色;</strong>という指定の仕方があります。
+それぞれのプロパティ値に設定する値というものをみていきます。</p>
+
+<ul>
+  <li><strong>線の太さ</strong>:<br />
+ピクセル指定(1px等) 変数指定(small）などができますが一般的にはピクセル指定が通常です。上記の書き方の場合四方すべての線の太さがこの太さになります。</li>
+  <li><strong>線の形</strong>:<br />
+これはいくつか指定があり下記にまとめます。
+すべてを覚える必要はありません
+    <div class="sampleboard ">線なし: </div>
+    <div class="sampleboard b-dotted">点線: dotted</div>
+    <div class="sampleboard b-dashed">破線: dashed</div>
+    <div class="sampleboard b-solid">実線： solid</div>
+    <div class="sampleboard b-double">二重線: double</div>
+    <div class="sampleboard b-groove">へこんだ線: groove</div>
+    <div class="sampleboard b-ridge">浮き上がった線: ridge</div>
+    <div class="sampleboard b-inset">線の内側がへこむ: inset</div>
+    <div class="sampleboard b-outset">線の内側が浮く&lt;: outset/div&gt;
+</div>
+  </li>
+  <li><strong>線の色</strong>:<br />
+これは背景色と同様で４種類、例などでは#000000といったrgb値を使います。</li>
+</ul>
+
+<p>つまり、下記のようにstyle.cssとindex.htmlを記述するとみることができます。</p>
+
+<p>[style.css]</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.box1</span><span class="p">{</span>
+	<span class="nl">width</span><span class="p">:</span><span class="m">50%</span><span class="p">;</span>
+	<span class="nl">height</span><span class="p">:</span><span class="m">150px</span><span class="p">;</span>
+	<span class="nl">border</span><span class="p">:</span><span class="m">3px</span> <span class="nb">solid</span> <span class="m">#ff0000</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>[index.html]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"wrap"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"box1"</span><span class="nt">&gt;</span>
+				テストボックスです
+			<span class="nt">&lt;/div&gt;</span>
+		<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>[表示結果]<br />
+<img src="/assets/img/cssentry_4/cssentry_4_3.jpg" alt="cssentry_4" /></p>
+
+<h3 id="パディングpadding">パディング(padding)</h3>
+<p>パディングは非常によく使うプロパティです。テキストなどなにがしかのレイアウトをデザインする際にこのパディングを設定しない場合要素の左上に詰まって表示されます。
+<img src="/assets/img/cssentry_4/cssentry_4_4.jpg" alt="cssentry_4" /></p>
+
+<p>上記のようにボックス内のテキストが左上に詰まって表示されているように表示されます。この親要素と子要素のあいだのスペースを指定することができます。paddingというプロパティで装飾が可能でプロパティ値にはピクセルで指定するのが一般的です。下記のようにcssとhtmlを記述することで指定ができます。</p>
+
+<p>[style.css]</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.box1</span><span class="p">{</span>
+	<span class="nl">width</span><span class="p">:</span><span class="m">50%</span><span class="p">;</span>
+	<span class="nl">height</span><span class="p">:</span><span class="m">150px</span><span class="p">;</span>
+	<span class="nl">border</span><span class="p">:</span><span class="m">1px</span> <span class="nb">solid</span> <span class="m">#ff0000</span><span class="p">;</span>
+
+	<span class="nl">padding</span><span class="p">:</span><span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>[index.html]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"wrap"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"box1"</span><span class="nt">&gt;</span>
+				テストボックスです
+			<span class="nt">&lt;/div&gt;</span>
+		<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>[表示結果]<br />
+<img src="/assets/img/cssentry_4/cssentry_4_5.jpg" alt="cssentry_4" /></p>
+
+<h3 id="マージン">マージン</h3>
+<p>マージンもパディングと同様よく使うプロパティです。パディングでは子要素の間にスペースをつくりました、マージンは他要素との間をしていします。プロパティはmarginというプロパティで設定します。またプロパティ値はパディング同様ピクセルで指定するのが一般的です。
+<img src="/assets/img/cssentry_4/cssentry_4_6.jpg" alt="cssentry_4" /></p>
+
+<p>上記のようにボックスレイアウトが二つ連なると基本的には間がありませんが、marginというプロパティを使いスペースを作ることができます。下記のようにcssファイルとhtmlファイルを作成してください。</p>
+
+<p>[style.css]</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.box1</span><span class="p">{</span>
+	<span class="nl">width</span><span class="p">:</span><span class="m">50%</span><span class="p">;</span>
+	<span class="nl">height</span><span class="p">:</span><span class="m">150px</span><span class="p">;</span>
+	<span class="nl">background-color</span><span class="p">:</span><span class="m">#ff0000</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.box2</span><span class="p">{</span>
+	<span class="nl">width</span><span class="p">:</span><span class="m">50%</span><span class="p">;</span>
+	<span class="nl">height</span><span class="p">:</span><span class="m">150px</span><span class="p">;</span>
+	<span class="nl">background-color</span><span class="p">:</span><span class="m">#ffff00</span><span class="p">;</span>
+
+	<span class="nl">margin</span><span class="p">:</span><span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>[index.html]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"wrap"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"box1"</span><span class="nt">&gt;</span>
+				テストボックスです
+			<span class="nt">&lt;/div&gt;</span>
+			<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"box2"</span><span class="nt">&gt;</span>
+				テストボックス２です
+			<span class="nt">&lt;/div&gt;</span>
+		<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>[表示結果]<br />
+<img src="/assets/img/cssentry_4/cssentry_4_7.jpg" alt="cssentry_4" /></p>
+
+  <div class="paging">
+    <div class="paging-left">
+      
+        <a href="/cssentry/2018/02/01/cssentry3.html"><i class="material-icons paging-icon">chevron_left</i>CSS入門[第三回]よく使うCSSプロパティ（font）</a>
+      
+    </div>
+    <div class="paging-right">
+      
+        <a href="/htmltopic/2018/02/01/htmltopic_1.html">HTML CSS JavaScriptではこんなことができます<i class="material-icons paging-icon">chevron_right</i></a>
+      
+    </div>
+  </div>
+</main>
+<aside class="content-aside">
+  <div class="aside-article">
+    <span class="aside-label">Category</span>
+    <ul class="aside-list">
+    
+    
+      <li><a href="/categories/cssappli">CSS応用</a></li>
+    
+      <li><a href="/categories/cssentry">CSS入門</a></li>
+    
+      <li><a href="/categories/environment">環境構築</a></li>
+    
+      <li><a href="/categories/htmlentry">HTML入門</a></li>
+    
+      <li><a href="/categories/htmlpre">HTML初級</a></li>
+    
+      <li><a href="/categories/htmltopic">HTML/CSSトピック</a></li>
+    
+      <li><a href="/categories/pcelement">パソコンの基礎</a></li>
+    
+    </ul>
+  </div>
+</aside>
+
+    </div>
+    <!-- page top button -->
+    <a class="btn-pagetop btn-floating btn-large brandcolor">
+      <i class="large material-icons">arrow_upward</i>
+    </a>
+    <footer class="page-footer footercolor">
+      <div class="footer-copyright">
+        <div class="container">
+          &copy;2018 Copyright
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>CSS入門[第三回]よく使うCSSプロパティ（font）SpiritIt</title>
+  <!-- stylesheet -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/materialize.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/prism.css">
+  <!-- js -->
+  <script src="/assets/js/jquery/jquery.min.js"></script>
+  <script src="/assets/js/site.js"></script>
+  <script src="/assets/js/prism.js"></script>
+
+  <meta name="description" content="サイトディスクリプションを記述します
+">
+  <meta name="viewport" content="width=device-width">
+</head>
+<body>
+  <div class="content">
+    <header>
+      <nav class="brandcolor">
+        <div class="container">
+          <div class="nav-wrapper">
+            <a href="/" class="brand-logo">SpiritIt</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              
+                <li><a href="/categories/htmlentry">HTML入門</a></li>
+              
+                <li><a href="/categories/cssappli">CSS応用</a></li>
+              
+                <li><a href="/categories/cssentry">CSS入門</a></li>
+              
+                <li><a href="/categories/htmltopic">HTML/CSSトピック</a></li>
+              
+                <li><a href="/categories/htmlpre">HTML初級</a></li>
+              
+                <li><a href="/categories/pcelement">パソコンの基礎</a></li>
+              
+                <li><a href="/categories/environment">環境構築</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="content-wrap">
+      <main class="content-body">
+  <span class="post-category">CSS入門</span>
+  <h1>CSS入門[第三回]よく使うCSSプロパティ（font）</h1>
+  <div class="chip">
+    <i class="material-icons v-middle">access_time</i>
+    2018年02月01日
+  </div>
+  <h2 id="よく使うcssプロパティ">よく使うCSSプロパティ</h2>
+<p>現在ではCSSは様々なプロパティを設定できます。これらも前の章と同様すべてを暗記する必要は一切ありません。基本的にはほかのWebサイトで見かけた表現は画像や動画、Flashのような他のプログラム以外のものであればすべてCSSで表現可能です。今回はその中でも頻度の高いプロパティを見ていきます。</p>
+
+<p>その中でもフォント系のプロパティはとてもよく利用するのでその中でもよく使うものを見ていきましょう。</p>
+
+<h3 id="フォント色">フォント色</h3>
+<p>colorというプロパティでフォントの色を変えることができます。aタグやspanタグでよく利用します。書き方は下記のように記述します。</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">span</span><span class="nc">.akamoji</span><span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span><span class="m">#ff0000</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>例で出しているの#ff0000はRGB値といいプロパティ値に設定できる種類がいくつかあります。その種類は下記の4種類で実際の色などはサイトなどにまとまっているので参考に探してみてください。</p>
+
+<ul>
+  <li>RGB値-#000000のよう16進数6桁で表現</li>
+  <li>RGB値短縮-#000のように16進数3桁で表現</li>
+  <li>RGB10進数-rgb(0,0,0)のようにRGB値を直接指定する表現</li>
+  <li>変数-redのようにあらかじめ指定されている色を指定</li>
+</ul>
+
+<p>具体的には下記のように記述するとフォントの色が変わって表示されます。</p>
+
+<p>[style.css]</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.aka</span><span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="m">#ff0000</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.blue</span><span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="m">#00f</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.yellow</span><span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="nb">rgb</span><span class="p">(</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nc">.green</span><span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="no">green</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>[index.html]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"aka"</span><span class="nt">&gt;</span>赤色<span class="nt">&lt;/p&gt;</span>
+
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"blue"</span><span class="nt">&gt;</span>青色<span class="nt">&lt;/p&gt;</span>
+
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"yellow"</span><span class="nt">&gt;</span>黄色<span class="nt">&lt;/p&gt;</span>
+
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"green"</span><span class="nt">&gt;</span>緑色<span class="nt">&lt;/p&gt;</span>
+
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>[表示結果]<br />
+<img src="/assets/img/cssentry_3/cssentry_3_1.jpg" alt="cssentry_3" /></p>
+
+<h3 id="フォントサイズ">フォントサイズ</h3>
+<p>font-sizeというプロパティで文字の大きさを変更できます。これもaタグやspanタグなどで多用します。color同様プロパティ値に設定できる単位の種類は多数ありその中でもよく使うものを書きに記述します。</p>
+
+<p>基準となる文字サイズのパーセンテージ計算でサイズを算出</p>
+<ul>
+  <li><strong>%指定</strong><br />
+基準となる文字サイズを１としてサイズを算出する。2emは基準となる文字２つ分の大きさとなります。</li>
+  <li><strong>em指定</strong><br />
+基準となる文字サイズの小文字の英語xを１としてサイズを算出する。1exは基準の小文字xの大きさと同じになります。</li>
+  <li><strong>ピクセル指定</strong><br />
+ピクセルでサイズを指定します。一番利用しやすい指定方法です。</li>
+  <li><strong>変数指定</strong><br />
+smallやlargeなどあらかじめ決められた変数の大きさを指定する方法です。</li>
+</ul>
+
+<div class="chusyaku">ここでいわれる基準となる文字サイズはhtmlタグや親要素でfont-sizeが指定されていればそのサイズになります。指定されていない場合はブラウザで違いますが16px（ピクセル）が一般的のようです。</div>
+
+<p>具体的な利用例は下記のようになります。<br />
+[style.css]</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.percent</span><span class="p">{</span>
+    <span class="nl">font-size</span><span class="p">:</span><span class="m">100%</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.doublepercent</span><span class="p">{</span>
+    <span class="nl">font-size</span><span class="p">:</span><span class="m">200%</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.emsize</span><span class="p">{</span>
+    <span class="nl">font-size</span><span class="p">:</span><span class="m">1em</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.doubleemsize</span><span class="p">{</span>
+    <span class="nl">font-size</span><span class="p">:</span><span class="m">2em</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.exsize</span><span class="p">{</span>
+    <span class="nl">font-size</span><span class="p">:</span><span class="m">1ex</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.doubleexsize</span><span class="p">{</span>
+    <span class="nl">font-size</span><span class="p">:</span><span class="m">2ex</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.pixel16</span><span class="p">{</span>
+    <span class="nl">font-size</span><span class="p">:</span><span class="m">16px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.pixel24</span><span class="p">{</span>
+    <span class="nl">font-size</span><span class="p">:</span><span class="m">24px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.small</span><span class="p">{</span>
+    <span class="nl">font-size</span><span class="p">:</span><span class="n">small</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.x-large</span><span class="p">{</span>
+    <span class="nl">font-size</span><span class="p">:</span><span class="nb">x-large</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>[index.html]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"kijun"</span><span class="nt">&gt;</span>基準のサイズ<span class="nt">&lt;/p&gt;</span>
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"kijun"</span><span class="nt">&gt;</span>基準の英語小文字x<span class="nt">&lt;/p&gt;</span>
+
+
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"percent"</span><span class="nt">&gt;</span>100%を指定<span class="nt">&lt;/p&gt;</span>
+
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"doublepercent"</span><span class="nt">&gt;</span>200%を指定<span class="nt">&lt;/p&gt;</span>
+
+
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"emsize"</span><span class="nt">&gt;</span>em指定<span class="nt">&lt;/p&gt;</span>
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"doubleemsize"</span><span class="nt">&gt;</span>2em指定<span class="nt">&lt;/p&gt;</span>
+
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"exsize"</span><span class="nt">&gt;</span>ex指定<span class="nt">&lt;/p&gt;</span>
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"doubleexsize"</span><span class="nt">&gt;</span>2ex指定<span class="nt">&lt;/p&gt;</span>
+
+
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"pixel16"</span><span class="nt">&gt;</span>16ピクセルを指定<span class="nt">&lt;/p&gt;</span>
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"pixel24"</span><span class="nt">&gt;</span>24ピクセルを指定<span class="nt">&lt;/p&gt;</span>
+
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"small"</span><span class="nt">&gt;</span>smallを指定<span class="nt">&lt;/p&gt;</span>
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"x-large"</span><span class="nt">&gt;</span>x-largeを指定<span class="nt">&lt;/p&gt;</span>
+
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>[表示結果]<br />
+<img src="/assets/img/cssentry_3/cssentry_3_2.jpg" alt="cssentry_3" /></p>
+
+<h3 id="フォントの種類">フォントの種類</h3>
+<p>font-familyというプロパティで表示するフォントの種類を決めることができます。フォントは基本的にはそれぞれ個人の主観なのでどれが一般的なフォントだとかはありません。多くの人が見やすいフォントなどはあるとおもいますが結局人によっては変わってしまうため議論が尽きません。</p>
+
+<p>そしてフォントはクライアントにそのフォントがインストールされていない場合を考え複数指定することができます。左から優先順位がつけられそのフォントがなければ次のフォント、それもなければその次といった感じで採用されます。下記のようにしていします。</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">body</span><span class="p">{</span>
+    <span class="nl">font-family</span><span class="p">:</span><span class="s2">'Hiragino Kaku Gothic ProN'</span><span class="p">,</span> <span class="s2">'ヒラギノ角ゴ ProN W3'</span><span class="p">,</span> <span class="n">Arial</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>普通は上記のように記述しますが下記ではフォントが変わるのを見るために段落それぞれにフォントを指定してみます。
+[style.css]</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.gothic</span><span class="p">{</span>
+    <span class="nl">font-family</span><span class="p">:</span><span class="s1">"MS Gothic"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.serif</span><span class="p">{</span>
+    <span class="nl">font-family</span><span class="p">:</span><span class="s1">"sans-serif"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.multi</span><span class="p">{</span>
+    <span class="nl">font-family</span><span class="p">:</span><span class="s2">'Hiragino Kaku Gothic ProN'</span><span class="p">,</span> <span class="s2">'ヒラギノ角ゴ ProN W3'</span><span class="p">,</span> <span class="n">Arial</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>[index.html]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"kijun"</span><span class="nt">&gt;</span>基準となるフォント<span class="nt">&lt;/p&gt;</span>
+
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"gothic"</span><span class="nt">&gt;</span>ゴシックで記述した文字<span class="nt">&lt;/p&gt;</span>
+
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"serif"</span><span class="nt">&gt;</span>セリフで記述した文字<span class="nt">&lt;/p&gt;</span>
+
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"multi"</span><span class="nt">&gt;</span>複数指定してあるがヒラギノがないのでArial<span class="nt">&lt;/p&gt;</span>
+
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>[表示結果]<br />
+<img src="/assets/img/cssentry_3/cssentry_3_3.jpg" alt="cssentry_3" /></p>
+
+<h3 id="行間">行間</h3>
+<p>文章の文字の行間を指定することができます。line-heightというプロパティでできますがこれもフォントサイズと同じ単位で指定することができます。</p>
+
+<ul>
+  <li><strong>%指定</strong>  <br />
+基準となる文字サイズのパーセンテージ計算でサイズを算出</li>
+  <li><strong>em指定</strong><br />
+基準となる文字サイズを１としてサイズを算出する。2emは基準となる文字２つ分の大きさとなります。</li>
+  <li><strong>ex指定</strong><br />
+基準となる文字サイズの小文字の英語xを１としてサイズを算出する。1exは基準の小文字xの大きさと同じになります。</li>
+  <li><strong>ピクセル指定</strong><br />
+ピクセルでサイズを指定します。</li>
+  <li><strong>変数指定</strong><br />
+smallやlargeなどあらかじめ決められた変数の大きさを指定する方法です。</li>
+</ul>
+
+<p>文字サイズとほぼ同じ考えで記述するのが良いです。ピクセルなどで指定すると文字サイズなどを変更した際に融通が利かなくなる場合が多々あります。</p>
+
+<p>[style.css]</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.danraku150</span><span class="p">{</span>
+    <span class="nl">line-height</span><span class="p">:</span><span class="m">150%</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.danraku200</span><span class="p">{</span>
+    <span class="nl">line-height</span><span class="p">:</span><span class="m">200%</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.colorred</span><span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>[index.html]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"danraku150"</span><span class="nt">&gt;</span>
+			文章の行間の大きさを指定することができます。<span class="nt">&lt;br&gt;</span>
+			line-heightに150%を指定しているので行全体の高さが150%になります。<span class="nt">&lt;br&gt;</span>
+			上下に割り振られるので上25%下25%の余白ができます。<span class="nt">&lt;br&gt;</span>
+		<span class="nt">&lt;/p&gt;</span>
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"colorred"</span><span class="nt">&gt;</span>ここから行間の大きさがかわります<span class="nt">&lt;/p&gt;</span>
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"danraku200"</span><span class="nt">&gt;</span>
+			文章の行間の大きさを指定することができます。<span class="nt">&lt;br&gt;</span>
+			line-heightに200%を指定しているので行全体の高さが200%になります。<span class="nt">&lt;br&gt;</span>
+			上下に割り振られるので上50%下50%の余白ができます。<span class="nt">&lt;br&gt;</span>
+			結果的に上下の行間50%が二つ連なるので一文字まるまるあくことになります。
+		<span class="nt">&lt;/p&gt;</span>
+
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>[表示結果]<br />
+<img src="/assets/img/cssentry_3/cssentry_3_4.jpg" alt="cssentry_3" /></p>
+
+<h3 id="テキスト装飾">テキスト装飾</h3>
+<p>文章に下線を引いたり打ち消し線を引くことができます。text-decorationというプロパティで装飾することができます。このプロパティに設定できるプロパティ値は下記の5つです。</p>
+
+<ul>
+  <li><strong>none</strong><br />
+テキストに何の装飾もされません。aタグのように初期値がnone以外の場合にcssで装飾を消したいときに使います。</li>
+  <li><strong>underline</strong><br />
+テキストに下線が引かれます。</li>
+  <li><strong>overline</strong><br />
+テキストの上に線が引かれます。あまり利用しません。</li>
+  <li><strong>line-through</strong><br />
+テキストに打ち消し線（真ん中に線）が引かれます。</li>
+  <li><strong>blink</strong><br />
+テキストが点滅します。現在はあまり見られません。（少しダサいです）</li>
+</ul>
+
+<p>[style.css]</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.none</span><span class="p">{</span>
+    <span class="nl">text-decoration</span><span class="p">:</span><span class="nb">none</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.underline</span><span class="p">{</span>
+    <span class="nl">text-decoration</span><span class="p">:</span><span class="nb">underline</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.overline</span><span class="p">{</span>
+    <span class="nl">text-decoration</span><span class="p">:</span><span class="nb">overline</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.line-through</span><span class="p">{</span>
+    <span class="nl">text-decoration</span><span class="p">:</span><span class="nb">line-through</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>[index.html]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"none"</span><span class="nt">&gt;</span>テキストに何も装飾されません<span class="nt">&lt;/p&gt;</span>
+
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"underline"</span><span class="nt">&gt;</span>テキストに下線が引かれます<span class="nt">&lt;/p&gt;</span>
+
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"overline"</span><span class="nt">&gt;</span>テキストの上に線が引かれます<span class="nt">&lt;/p&gt;</span>
+
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"line-through"</span><span class="nt">&gt;</span>テキストに打ち消し線が引かれます<span class="nt">&lt;/p&gt;</span>
+
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>[表示結果]<br />
+<img src="/assets/img/cssentry_3/cssentry_3_5.jpg" alt="cssentry_3" /></p>
+
+  <div class="paging">
+    <div class="paging-left">
+      
+        <a href="/cssentry/2018/02/01/cssentry2.html"><i class="material-icons paging-icon">chevron_left</i>CSS入門[第二回]セレクタ</a>
+      
+    </div>
+    <div class="paging-right">
+      
+        <a href="/cssentry/2018/02/01/cssentry4.html">CSS入門[第四回]よく使うCSSプロパティ（ボックス）<i class="material-icons paging-icon">chevron_right</i></a>
+      
+    </div>
+  </div>
+</main>
+<aside class="content-aside">
+  <div class="aside-article">
+    <span class="aside-label">Category</span>
+    <ul class="aside-list">
+    
+    
+      <li><a href="/categories/cssappli">CSS応用</a></li>
+    
+      <li><a href="/categories/cssentry">CSS入門</a></li>
+    
+      <li><a href="/categories/environment">環境構築</a></li>
+    
+      <li><a href="/categories/htmlentry">HTML入門</a></li>
+    
+      <li><a href="/categories/htmlpre">HTML初級</a></li>
+    
+      <li><a href="/categories/htmltopic">HTML/CSSトピック</a></li>
+    
+      <li><a href="/categories/pcelement">パソコンの基礎</a></li>
+    
+    </ul>
+  </div>
+</aside>
+
+    </div>
+    <!-- page top button -->
+    <a class="btn-pagetop btn-floating btn-large brandcolor">
+      <i class="large material-icons">arrow_upward</i>
+    </a>
+    <footer class="page-footer footercolor">
+      <div class="footer-copyright">
+        <div class="container">
+          &copy;2018 Copyright
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

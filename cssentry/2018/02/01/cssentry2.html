@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>CSS入門[第二回]セレクタSpiritIt</title>
+  <!-- stylesheet -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/materialize.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/prism.css">
+  <!-- js -->
+  <script src="/assets/js/jquery/jquery.min.js"></script>
+  <script src="/assets/js/site.js"></script>
+  <script src="/assets/js/prism.js"></script>
+
+  <meta name="description" content="サイトディスクリプションを記述します
+">
+  <meta name="viewport" content="width=device-width">
+</head>
+<body>
+  <div class="content">
+    <header>
+      <nav class="brandcolor">
+        <div class="container">
+          <div class="nav-wrapper">
+            <a href="/" class="brand-logo">SpiritIt</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              
+                <li><a href="/categories/htmlentry">HTML入門</a></li>
+              
+                <li><a href="/categories/cssappli">CSS応用</a></li>
+              
+                <li><a href="/categories/cssentry">CSS入門</a></li>
+              
+                <li><a href="/categories/htmltopic">HTML/CSSトピック</a></li>
+              
+                <li><a href="/categories/htmlpre">HTML初級</a></li>
+              
+                <li><a href="/categories/pcelement">パソコンの基礎</a></li>
+              
+                <li><a href="/categories/environment">環境構築</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="content-wrap">
+      <main class="content-body">
+  <span class="post-category">CSS入門</span>
+  <h1>CSS入門[第二回]セレクタ</h1>
+  <div class="chip">
+    <i class="material-icons v-middle">access_time</i>
+    2018年02月01日
+  </div>
+  <h2 id="id属性とclass属性セレクタの前に">id属性とclass属性（セレクタの前に）</h2>
+<p>CSSを記述するうえでhtmlの属性であるid属性とclass属性に触れます。idとclass属性はどちらもhtmlタグを識別するために利用できる属性です。CSSで指定したりJavaScriptなど他のプログラムからわかるようにつける印です。二つの属性はほぼ同じ意味で利用されますが下記の点で役割が違います。</p>
+
+<ul>
+  <li>id属性は一つのhtmlで同じ名前を使ってはいけない</li>
+  <li>id属性は一つのタグに一つしか指定できない</li>
+  <li>class属性は同じ名前を使ってもよいし一つのタグに複数の名前を指定してもよい</li>
+</ul>
+
+<h3 id="id属性">id属性</h3>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+		<span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"p1"</span><span class="nt">&gt;</span>段落１です<span class="nt">&lt;/p&gt;</span>
+		<span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"p2"</span><span class="nt">&gt;</span>段落２です<span class="nt">&lt;/p&gt;</span>
+		<span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"p2"</span><span class="nt">&gt;</span>段落３です<span class="nt">&lt;/p&gt;</span>
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>id属性は上記のようにid=”指定するID”のように指定します。上記ではidの”p1″は重複していませんが<span class="text_b_red">“p2″は重複しているのでhtmlとしては間違いです。</span>ただし、現状idが重複しているホームページは山ほどありますしブラウザもid重複でエラーにするものは少ないのが現状です。JavaScriptなどを利用しない場合には問題にはなりませんができるだけ正しいHTMLを記述するようにするため重複してしまわないようにしてください。</p>
+<div class="chusyaku">実際のプログラム開発では間違った記述でも動作としては正しく動いてしまう場合があります。その場合良かれと思って直したことで違うエラーを引き起こす場合がたくさんあるので直してはいけないことが多いです。一番初めにプログラムを記述した人はとても気を使って記述する必要があります。</div>
+
+<h3 id="class属性">class属性</h3>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"p1"</span><span class="nt">&gt;</span>段落１です<span class="nt">&lt;/p&gt;</span>
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"p2"</span><span class="nt">&gt;</span>段落２です<span class="nt">&lt;/p&gt;</span>
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"p1 p2"</span><span class="nt">&gt;</span>段落３です<span class="nt">&lt;/p&gt;</span>
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>class属性はidと同様でclass=”指定するclass名”のように指定します。id属性とは違い上記の段落３のように<span class="text_b_red">class=”p1 p2″のように複数同時に指定できます。</span>他のプログラムからは同じclass名を持つものはすべてアクセスできます。</p>
+
+<h2 id="セレクタ">セレクタ</h2>
+<p>cssでは装飾したい場合に装飾する対象をタグ名やid属性、class属性を利用して指定します。それを<span class="text_b_red">セレクタ</span>と呼びます。cssの記述のそれぞれの名称は下記のようになります。
+<img src="/assets/img/cssentry_2/cssentry_2_1.jpg" alt="css_entry2" /><br />
+<span class="text_b_red">セレクタ</span>で指定したタグの<span class="text_b_blue">プロパティ</span>の値を指定した<span class="text_b_green">値</span>に設定することでそのタグを装飾します。上記はh1タグすべてのcolor(文字色)を赤色に設定しています。
+セレクタの種類はいくつかありますが全部を覚える必要はありません。こういう指定の仕方があったなということを覚えておけば必要な時は調べればよいです。下記にセレクタの種類とその記述例をまとめます。</p>
+
+<h3 id="ユニバーサルセレクタ">ユニバーサルセレクタ</h3>
+<p>すべての要素の装飾を行えます。セレクタには記号の「*」アスタリスクを使用します。
+基本的には多用しません。</p>
+
+<p>[style.css]</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">*</span><span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>[index.html]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+
+		<span class="nt">&lt;h1&gt;</span>ページタイトル<span class="nt">&lt;/h1&gt;</span>
+
+		<span class="nt">&lt;p&gt;</span>サンプル文章<span class="nt">&lt;/p&gt;</span>
+
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>[表示結果]<br />
+<img src="/assets/img/cssentry_2/cssentry_2_2.jpg" alt="css_entry2" /></p>
+
+<h3 id="タイプセレクタ">タイプセレクタ</h3>
+<p>タグ名を指定するセレクタです。利用頻度は最重要です。指定したタグのみ装飾を行うときに使います。例ではh1タグのみを指定します。pタグが装飾されていないことを確認してください。</p>
+
+<p>[style.css]</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">h1</span><span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>[index.html]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+
+		<span class="nt">&lt;h1&gt;</span>ページタイトル<span class="nt">&lt;/h1&gt;</span>
+
+		<span class="nt">&lt;p&gt;</span>サンプル文章<span class="nt">&lt;/p&gt;</span>
+
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>[表示結果]<br />
+<img src="/assets/img/cssentry_2/cssentry_2_3.jpg" alt="css_entry2" /></p>
+
+<h3 id="idセレクタ">IDセレクタ</h3>
+<p>id属性を指定するセレクタです。指定したいid名の前に記号の「#」シャープをつけて記述します。その際[タグ名]#[id名]と記述する方法と#[id名]と指定する方法があります。一般的にはタグ名を省略することがおおいです。</p>
+
+<p>[style.css]</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">#title-1</span><span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">h1</span><span class="nf">#title-2</span><span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">blue</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>[index.html]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+		<span class="nt">&lt;h1</span> <span class="na">id=</span><span class="s">"title-1"</span><span class="nt">&gt;</span>ページタイトル<span class="nt">&lt;/h1&gt;</span>
+		<span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"p-1"</span><span class="nt">&gt;</span>サンプル文章<span class="nt">&lt;/p&gt;</span>
+		<span class="nt">&lt;h1</span> <span class="na">id=</span><span class="s">"title-2"</span><span class="nt">&gt;</span>ページタイトル２<span class="nt">&lt;/h1&gt;</span>
+		<span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"p-2"</span><span class="nt">&gt;</span>サンプル文章２<span class="nt">&lt;/p&gt;</span>
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>[表示結果]<br />
+<img src="/assets/img/cssentry_2/cssentry_2_4.jpg" alt="css_entry2" /></p>
+
+<h3 id="クラスセレクタ">クラスセレクタ</h3>
+<p>class属性を利用して指定するセレクタです。指定したいクラスの前に「.」ピリオドをつけて指定します。IDセレクタと同様で[タグ名].[クラス名]のように指定する方法とタグ名を省略して.[クラス名]のように指定する方法があります。利用頻度はこのセレクタが一番高いです。
+また、class=”クラス名１ クラス名２”のように半角スペースで区切ることで一つのタグに何個でも指定することができます。</p>
+
+<p>[style.css]<br />
+class属性にheadを指定したタグの文字色を赤に
+futojiを指定したタグの文字サイズを1emに（emは別途説明予定)で且つ太字に
+pタグの中でclass属性にsampleと指定したタグの文字色を青にするというcssの設定です。</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.head</span><span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.futoji</span><span class="p">{</span>
+	<span class="nl">font-size</span><span class="p">:</span><span class="m">1em</span><span class="p">;</span>
+	<span class="nl">font-weight</span><span class="p">:</span><span class="nb">bold</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">p</span><span class="nc">.sample</span><span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">blue</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>[index.html]<br />
+bodyの3つ目の要素「ページタイトル２」ではclassを複数していしているのでその両方の装飾がされていることを確認してください。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+		<span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"head"</span><span class="nt">&gt;</span>ページタイトル<span class="nt">&lt;/h1&gt;</span>
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"futoji"</span><span class="nt">&gt;</span>サンプル文章<span class="nt">&lt;/p&gt;</span>
+		<span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"head futoji"</span><span class="nt">&gt;</span>ページタイトル２<span class="nt">&lt;/h1&gt;</span>
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"sample"</span><span class="nt">&gt;</span>サンプル文章２<span class="nt">&lt;/p&gt;</span>
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>[表示結果] <br />
+<img src="/assets/img/cssentry_2/cssentry_2_5.jpg" alt="css_entry2" /></p>
+
+<h3 id="複数セレクタ">複数セレクタ</h3>
+<p>複数のセレクタに同じプロパティを設定する場合につかいます。セレクタを記号の「,」で区切ると複数のセレクタに同じプロパティを設定することができます。それぞれのセレクタはIDセレクタやクラスセレクタなど何でも構いません。</p>
+
+<p>[style.css]</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">h1</span><span class="o">,</span> <span class="nc">.sample</span><span class="o">,</span> <span class="nc">.sample3</span><span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>[index.html]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+		<span class="nt">&lt;h1&gt;</span>ページタイトル１<span class="nt">&lt;/h1&gt;</span>
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"sample"</span><span class="nt">&gt;</span>サンプル文章１<span class="nt">&lt;/p&gt;</span>
+		<span class="nt">&lt;h2&gt;</span>ページタイトル２<span class="nt">&lt;/h2&gt;</span>
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"sample2"</span><span class="nt">&gt;</span>サンプル文書２<span class="nt">&lt;/p&gt;</span>
+		<span class="nt">&lt;h2&gt;</span>ページタイトル３<span class="nt">&lt;/h2&gt;</span>
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"sample3"</span><span class="nt">&gt;</span>サンプル文書３<span class="nt">&lt;/p&gt;</span>
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>[表示結果]<br />
+セレクタで指定した要素のみが装飾されていることを確認してください。<br />
+<img src="/assets/img/cssentry_2/cssentry_2_6.jpg" alt="css_entry2" /></p>
+
+<h3 id="子孫セレクタ">子孫セレクタ</h3>
+<p>セレクタを半角スペースで区切って指定すると。一つ目で指定したセレクタ内の要素のうち二つ目で指定したセレクタを指定することができます。この場合一つ目のセレクタの要素を親要素として子要素でも孫要素でも二つ目のセレクタで指定したタグは装飾されます。</p>
+
+<p>[style.css]</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.parent</span>  <span class="nt">p</span><span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>[index.html]<br />
+子孫セレクタでは親要素である&lt;div class=”parent”&gt;内の要素のすべてのpタグを装飾できます。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+
+		<span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"head"</span><span class="nt">&gt;</span>ページタイトル<span class="nt">&lt;/h1&gt;</span>
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"futoji"</span><span class="nt">&gt;</span>サンプル文章<span class="nt">&lt;/p&gt;</span>
+
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"parent"</span><span class="nt">&gt;</span>
+
+			<span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"head futoji"</span><span class="nt">&gt;</span>ページタイトル２<span class="nt">&lt;/h1&gt;</span>
+			<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"sample"</span><span class="nt">&gt;</span>サンプル文章２<span class="nt">&lt;/p&gt;</span>
+
+			<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"child"</span><span class="nt">&gt;</span>
+
+				<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"sample2"</span><span class="nt">&gt;</span>サンプル文章３<span class="nt">&lt;/p&gt;</span>
+
+			<span class="nt">&lt;/div&gt;</span>
+
+		<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>[表示結果]<br />
+サンプル文書２もサンプル文書３という文字双方の文字色が赤くなっていることを確認してください。<br />
+<img src="/assets/img/cssentry_2/cssentry_2_7.jpg" alt="css_entry2" /></p>
+
+<h3 id="子セレクタ">子セレクタ</h3>
+<p>子孫セレクタに似ていますが二つのセレクタを記号のだいなり「&gt;」で区切ります。この場合子孫セレクタと違い一つ目のセレクタで指定した親からみて子の要素のみ装飾されます。</p>
+
+<p>[style.css]</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.parent</span> <span class="o">&gt;</span> <span class="nt">p</span><span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>[index.html]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+
+		<span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"head"</span><span class="nt">&gt;</span>ページタイトル<span class="nt">&lt;/h1&gt;</span>
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"futoji"</span><span class="nt">&gt;</span>サンプル文章<span class="nt">&lt;/p&gt;</span>
+
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"parent"</span><span class="nt">&gt;</span>
+
+			<span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"head futoji"</span><span class="nt">&gt;</span>ページタイトル２<span class="nt">&lt;/h1&gt;</span>
+			<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"sample"</span><span class="nt">&gt;</span>サンプル文章２<span class="nt">&lt;/p&gt;</span>
+
+			<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"child"</span><span class="nt">&gt;</span>
+
+				<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"sample2"</span><span class="nt">&gt;</span>サンプル文章３<span class="nt">&lt;/p&gt;</span>
+
+			<span class="nt">&lt;/div&gt;</span>
+
+		<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>[表示結果]<br />
+子孫セレクタと異なり孫要素であるサンプル文章３の文字色が赤くなっていないことを確認してください。<br />
+<img src="/assets/img/cssentry_2/cssentry_2_8.jpg" alt="css_entry2" /></p>
+
+<h3 id="隣接セレクタ">隣接セレクタ</h3>
+<p>子セレクタに近いセレクタで隣接セレクタというのがあります。このセレクタでは二つのセレクタを記号の「+」で区切ります。この場合一つ目のセレクタと同じ階層の次の要素が二つ目のセレクタで指定した要素の場合に装飾します。</p>
+
+<p>[style.css]<br />
+一つ目のセレクタでクラス属性を指定しているのでclass属性が”parent”を含む要素で同列の次の要素がh1タグの場合それを装飾します。</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.parent</span> <span class="o">+</span> <span class="nt">h1</span><span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>[index.html]<br />
+class=”parent”の子要素ではなく同列の要素である「ページタイトル３」が装飾されていることを確認してください。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+
+		<span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"head"</span><span class="nt">&gt;</span>ページタイトル<span class="nt">&lt;/h1&gt;</span>
+		<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"futoji"</span><span class="nt">&gt;</span>サンプル文章<span class="nt">&lt;/p&gt;</span>
+
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"parent"</span><span class="nt">&gt;</span>
+
+			<span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"head futoji"</span><span class="nt">&gt;</span>ページタイトル２<span class="nt">&lt;/h1&gt;</span>
+			<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"sample"</span><span class="nt">&gt;</span>サンプル文章２<span class="nt">&lt;/p&gt;</span>
+
+			<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"child"</span><span class="nt">&gt;</span>
+
+				<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"sample2"</span><span class="nt">&gt;</span>サンプル文章３<span class="nt">&lt;/p&gt;</span>
+
+			<span class="nt">&lt;/div&gt;</span>
+
+		<span class="nt">&lt;/div&gt;</span>
+		<span class="nt">&lt;h1&gt;</span>ページタイトル３<span class="nt">&lt;/h1&gt;</span>
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>[表示結果]<br />
+<img src="/assets/img/cssentry_2/cssentry_2_9.jpg" alt="css_entry2" /></p>
+
+<h3 id="疑似クラス">疑似クラス</h3>
+<p>セレクタのうちで少しちょっと動作が違うのですが、リンクを表示する場合に訪問済みのリンクとまだ見たことないリンクで色が違うことがあるとおもいます。そのようなタグの状態によって色を変えたりすることができるセレクタです。
+疑似クラスではセレクタ：疑似クラスのように記述します。セレクタの状態が疑似クラスの状態であるときにそのプロパティが適用される仕組みです。</p>
+
+<p>未訪問<strong>（link）</strong></p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">a</span><span class="nd">:link</span><span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>訪問済み<strong>（visited）</strong></p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">a</span><span class="nd">:visited</span><span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>マウスカーソルが上に乗っている<strong>（hover）</strong></p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">a</span><span class="nd">:hover</span><span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>フォーカスされている<strong>（focus）</strong></p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">input</span><span class="nd">:focus</span><span class="p">{</span>
+   <span class="nl">background</span><span class="p">:</span><span class="no">gray</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="chusyaku">フォーカスとはテキストボックスなどを入力するときのように選択されている状態のことを指します</div>
+
+<h3 id="疑似要素">疑似要素</h3>
+<p>疑似クラスのように指定した要素の一つ目の要素や前後にスタイルを挿入したり疑似的に要素を追加するようなセレクタです</p>
+
+<h4 id="一つ目の子要素first-child">一つ目の子要素（first-child）</h4>
+<p>何かの子要素のうち一つ目のpタグを装飾する場合下記のように記述します。基本的には子孫セレクタと組み合わせて使われることがおおいです。</p>
+
+<p>[style.css]</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span><span class="nd">:first-child</span><span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>[index.html]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+
+		<span class="nt">&lt;h1&gt;</span>ページタイトル１<span class="nt">&lt;/h1&gt;</span>
+		<span class="nt">&lt;div&gt;</span>
+			<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"sample3"</span><span class="nt">&gt;</span>サンプル文書１<span class="nt">&lt;/p&gt;</span>
+		<span class="nt">&lt;/div&gt;</span>
+
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>[表示結果]<br />
+<img src="/assets/img/cssentry_2/cssentry_2_10.jpg" alt="css_entry2" /></p>
+
+<h4 id="最初の要素の一行目first-line">最初の要素の一行目（first-line)</h4>
+<p>子要素のうち一行目を修飾する場合に記述します。<br />
+[style.css]</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span><span class="nd">:first-line</span><span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>[index.html]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+
+		<span class="nt">&lt;h1&gt;</span>ページタイトル１<span class="nt">&lt;/h1&gt;</span>
+		<span class="nt">&lt;div&gt;</span>
+			<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"sample3"</span><span class="nt">&gt;</span>
+				１行目のみ色が明るくなり
+				<span class="nt">&lt;br&gt;</span>２行目以降は装飾がはずれて色がもとにもどります。
+			<span class="nt">&lt;/p&gt;</span>
+		<span class="nt">&lt;/div&gt;</span>
+
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>[表示結果]<br />
+<img src="/assets/img/cssentry_2/cssentry_2_11.jpg" alt="css_entry2" /></p>
+
+<h4 id="最初の要素の一文字目first-letter">最初の要素の一文字目（first-letter）</h4>
+<p>最初の要素の一文字目を装飾したい場合に記述します。<br />
+[style.css]</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span><span class="nd">:first-letter</span><span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>[index.html]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+
+		<span class="nt">&lt;h1&gt;</span>ページタイトル１<span class="nt">&lt;/h1&gt;</span>
+		<span class="nt">&lt;div&gt;</span>
+			<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"sample3"</span><span class="nt">&gt;</span>
+				１文字目のみ色が赤になり２文字目以降は普通の文字にもどります。
+			<span class="nt">&lt;/p&gt;</span>
+		<span class="nt">&lt;/div&gt;</span>
+
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>[表示結果]<br />
+<img src="/assets/img/cssentry_2/cssentry_2_12.jpg" alt="css_entry2" /></p>
+
+<h4 id="要素の直前直後beforとafter">要素の直前直後（beforとafter）</h4>
+<p>要素の直前や直後にスタイルを挿入したい場合に使うセレクタです<br />
+[style.css]</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.comment</span><span class="nd">:before</span><span class="p">{</span>
+	<span class="nl">content</span><span class="p">:</span><span class="s1">"「"</span><span class="p">;</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.comment</span><span class="nd">:after</span><span class="p">{</span>
+	<span class="nl">content</span><span class="p">:</span><span class="s1">"」"</span><span class="p">;</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">blue</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>[index.html]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;title&gt;</span>HTML入門です<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+
+		<span class="nt">&lt;h1&gt;</span>ページタイトル１<span class="nt">&lt;/h1&gt;</span>
+		<span class="nt">&lt;div&gt;</span>
+			<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"comment"</span><span class="nt">&gt;</span>おはよう<span class="nt">&lt;/span&gt;</span>
+			などのセリフのような言葉をデザインされた括弧でくくる場合などに利用します。
+		<span class="nt">&lt;/div&gt;</span>
+
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>[表示結果]<br />
+<img src="/assets/img/cssentry_2/cssentry_2_13.jpg" alt="css_entry2" /></p>
+
+<h2 id="セレクタ一覧">セレクタ一覧</h2>
+<p>一度上記の説明を読み理解した場合には思い出すのは利用例だけでよいので念のために一覧表にまとめます。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>書き方</th>
+      <th>装飾対象</th>
+      <th>利用例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ユニバーサルセレクタ</td>
+      <td>*（アスタリスク）</td>
+      <td>すべての要素</td>
+      <td>*{ color:red; }</td>
+    </tr>
+    <tr>
+      <td>タイプセレクタ</td>
+      <td>タグ名</td>
+      <td>指定したタグすべて</td>
+      <td>h1{ color:red; }</td>
+    </tr>
+    <tr>
+      <td>IDセレクタ</td>
+      <td>#id名</td>
+      <td>指定したidを持つ要素</td>
+      <td>#title{ color:red; }</td>
+    </tr>
+    <tr>
+      <td>クラスセレクタ</td>
+      <td>.class名</td>
+      <td>指定したclassが指定ある要素すべて</td>
+      <td>.head{ color:red; }</td>
+    </tr>
+    <tr>
+      <td>複数セレクタ</td>
+      <td>セレクタ,セレクタ,セレクタ</td>
+      <td>指定したセレクタの要素すべて</td>
+      <td>h1,h2,h3{ color:red; }</td>
+    </tr>
+    <tr>
+      <td>子孫セレクタ</td>
+      <td>セレクタ セレクタ</td>
+      <td>一つ目のセレクタの子孫のうち二つ目のセレクタで指定した要素すべて</td>
+      <td>div p{ color:red; }</td>
+    </tr>
+    <tr>
+      <td>子セレクタ</td>
+      <td>セレクタ &gt; セレクタ</td>
+      <td>一つ目のセレクタの子要素のうち二つ目のセレクタで指定した要素</td>
+      <td>div &gt; p{ color:red; }</td>
+    </tr>
+    <tr>
+      <td>隣接セレクタ</td>
+      <td>セレクタ + セレクタ</td>
+      <td>一つ目の要素の次の二つ目のセレクタで指定した要素</td>
+      <td>div + p{ color:red; }</td>
+    </tr>
+    <tr>
+      <td>未訪問</td>
+      <td>セレクタ:link</td>
+      <td>未訪問の要素</td>
+      <td>a:link{ color:red; }</td>
+    </tr>
+    <tr>
+      <td>訪問済み</td>
+      <td>セレクタ:visited</td>
+      <td>訪問済みの要素</td>
+      <td>a:visite{ color:red; }</td>
+    </tr>
+    <tr>
+      <td>マウスカーソルが乗っている</td>
+      <td>セレクタ:hover</td>
+      <td>要素にマウスカーソルが乗った場合</td>
+      <td>a:hover{ color:red; }</td>
+    </tr>
+    <tr>
+      <td>フォーカスされている</td>
+      <td>セレクタ:focus</td>
+      <td>要素にフォーカスが当たっている場合</td>
+      <td>input:focus{ background-color:gray; }</td>
+    </tr>
+    <tr>
+      <td>一つ目の要素</td>
+      <td>セレクタ:first-child</td>
+      <td>指定したセレクタの子要素の一つ目の要素</td>
+      <td>p:first-child{ color:red; }</td>
+    </tr>
+    <tr>
+      <td>要素の一行目</td>
+      <td>セレクタ:first-line</td>
+      <td>指定したセレクタの子要素の一行目</td>
+      <td>p:first-line</td>
+    </tr>
+    <tr>
+      <td>要素の一文字目</td>
+      <td>セレクタ:first-letter</td>
+      <td>指定したセレクタの子要素の一文字目</td>
+      <td>p:first-letter{ color:red; }</td>
+    </tr>
+    <tr>
+      <td>要素の直前</td>
+      <td>セレクタ:before</td>
+      <td>指定したセレクタの直前</td>
+      <td>span:before{ color:red; }</td>
+    </tr>
+    <tr>
+      <td>要素の直後</td>
+      <td>セレクタ:after</td>
+      <td>指定したセレクタの直後</td>
+      <td>span:after{ color:red; }</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="まとめ">まとめ</h2>
+<p>これがすべてではありませんが、cssで装飾する場合に様々な指定方法があることがわかりました。これをすべて暗記する必要はありません。こういうやり方があったということだけでも覚えれば調べたり人に聞いたりすることができるので頭の片隅に残っていればそれで充分です。またよく使うセレクタは結果的に覚えてしまいます。この章では様々なセレクタがあるということを学びました。</p>
+
+  <div class="paging">
+    <div class="paging-left">
+      
+        <a href="/cssentry/2018/02/01/cssentry1.html"><i class="material-icons paging-icon">chevron_left</i>CSS入門[第一回]CSSとはなにか</a>
+      
+    </div>
+    <div class="paging-right">
+      
+        <a href="/cssentry/2018/02/01/cssentry3.html">CSS入門[第三回]よく使うCSSプロパティ（font）<i class="material-icons paging-icon">chevron_right</i></a>
+      
+    </div>
+  </div>
+</main>
+<aside class="content-aside">
+  <div class="aside-article">
+    <span class="aside-label">Category</span>
+    <ul class="aside-list">
+    
+    
+      <li><a href="/categories/cssappli">CSS応用</a></li>
+    
+      <li><a href="/categories/cssentry">CSS入門</a></li>
+    
+      <li><a href="/categories/environment">環境構築</a></li>
+    
+      <li><a href="/categories/htmlentry">HTML入門</a></li>
+    
+      <li><a href="/categories/htmlpre">HTML初級</a></li>
+    
+      <li><a href="/categories/htmltopic">HTML/CSSトピック</a></li>
+    
+      <li><a href="/categories/pcelement">パソコンの基礎</a></li>
+    
+    </ul>
+  </div>
+</aside>
+
+    </div>
+    <!-- page top button -->
+    <a class="btn-pagetop btn-floating btn-large brandcolor">
+      <i class="large material-icons">arrow_upward</i>
+    </a>
+    <footer class="page-footer footercolor">
+      <div class="footer-copyright">
+        <div class="container">
+          &copy;2018 Copyright
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

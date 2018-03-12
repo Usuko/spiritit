@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>HTML入門[第一回]入門SpiritIt</title>
+  <!-- stylesheet -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/materialize.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/prism.css">
+  <!-- js -->
+  <script src="/assets/js/jquery/jquery.min.js"></script>
+  <script src="/assets/js/site.js"></script>
+  <script src="/assets/js/prism.js"></script>
+
+  <meta name="description" content="サイトディスクリプションを記述します
+">
+  <meta name="viewport" content="width=device-width">
+</head>
+<body>
+  <div class="content">
+    <header>
+      <nav class="brandcolor">
+        <div class="container">
+          <div class="nav-wrapper">
+            <a href="/" class="brand-logo">SpiritIt</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              
+                <li><a href="/categories/htmlentry">HTML入門</a></li>
+              
+                <li><a href="/categories/cssappli">CSS応用</a></li>
+              
+                <li><a href="/categories/cssentry">CSS入門</a></li>
+              
+                <li><a href="/categories/htmltopic">HTML/CSSトピック</a></li>
+              
+                <li><a href="/categories/htmlpre">HTML初級</a></li>
+              
+                <li><a href="/categories/pcelement">パソコンの基礎</a></li>
+              
+                <li><a href="/categories/environment">環境構築</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="content-wrap">
+      <main class="content-body">
+  <span class="post-category">HTML入門</span>
+  <h1>HTML入門[第一回]入門</h1>
+  <div class="chip">
+    <i class="material-icons v-middle">access_time</i>
+    2018年02月01日
+  </div>
+  <h2 id="この研修を対象としてる人">この研修を対象としてる人</h2>
+<ul>
+  <li>パソコンの基本的な操作は問題なくできる（メールやインターネットなどを使える）</li>
+  <li>htmlに興味がある（どんなもんなんだろう程度でもよいです）</li>
+  <li>htmlはある程度分かるけど基本をおさらいする</li>
+  <li>ブログやホームページなどを自由に作ってみたい</li>
+</ul>
+
+<p>ブログを作成したり社内サイトを少し修正したりと、意外にhtmlを扱うことは増えてきています。現在ではwordpressや様々なツールがあるので0からhtmlを記述するということもなくなってきました。htmlは非常に単純なものであるので、必要な時に調べれば済むこともおおいです。しかしhtmlの基本的なことを理解しているとその作業も早くなりますし、うまく表示されないなどといったときに何を調べればいいかもすぐに判断がつくようになります。</p>
+
+<p>ここでは、<span class="text_b_red">htmlを取り扱う際の用語やツールの扱い方を理解してもらうことを目的としています。</span></p>
+
+<h2 id="事前準備">事前準備</h2>
+<h3 id="ブラウザの用意">ブラウザの用意</h3>
+<p>htmlで記述された文書を表示するためのアプリケーションをブラウザと呼びます。おそらく今利用しているパソコンではInternet Explorerを利用していると思います。インターネットを見ているツールのことです。<br />
+<span class="kome">※現在ではInternetExplorerはサポート対象外なので非推奨です</span></p>
+
+<p>以下のいずれかのブラウザのできれば最新版を用意してください。<br />
+今使っているパソコンになければ職員に確認をして上記リンクをみてインストールしてください。</p>
+<ul>
+  <li>Google Chrome</li>
+  <li>Safari</li>
+  <li>Edge</li>
+  <li>FierFox</li>
+  <li>Opera</li>
+  <li>Internet Explorer（非推奨）</li>
+</ul>
+
+<h2 id="エディタの用意">エディタの用意</h2>
+<p>htmlを記述するにはエディタと呼ばれるツールが必要になります。メモ帳（notepad）でもよいですが、世の中にはhtmlを記述する際にとても便利なアプリケーションが無料有料含めた数あります。SpiritでもいくつかのPCにインストールされているTerapadが推奨のものになりますが下記にいくつか有名なエディタを記載しておきます。</p>
+
+<p>これらエディタは基本的にはたいてい下記の機能が有ります。</p>
+<ul>
+  <li>コードを見やすいように色分け（自分でカスタマイズ可能）</li>
+  <li>コードヒント（コードの頭何文字かを入力すると候補が表示される）</li>
+  <li>コード保管（開始タグを記述すると終了タグが自動で記述される。</li>
+  <li>その他、検索や一括置換など様々です</li>
+</ul>
+
+<h3 id="無料エディタ">無料エディタ</h3>
+<ul>
+  <li><strong>TeraPad（テラパッド）</strong><br />
+シンプルで必要な機能は大体あります。大きなホームページなどには少し向いていません。
+今使っているパソコンになければ職員に確認をして上記リンクをみてインストールしてください。</li>
+  <li><strong>サクラエディタ</strong><br />
+大規模開発でも利用されています。高機能でシンプルです。</li>
+  <li><strong>Atom（アトム）</strong>  <br />
+超高機能でhtml,css,phpなどを取り扱うにはかなり便利ですが多少動作が重いかもしれません。</li>
+  <li><strong>Notepad++</strong><br />
+こちらもシンプルですが機能は多め。小規模なホームページやプログラミングには十分の機能をもっています。</li>
+  <li><strong>Brackets</strong><br />
+画像のURLにマウスホバーすると画像プレビューがあったり、ページ全体のプレビューがすぐ見れたり視覚的なユーザ補完が多い。</li>
+</ul>
+
+<p>基本的にエディタは慣れているものを使うのが一番です。普段メモ帳をよく使う人はNotepad++あたりがよいです。今後htmlだけでなくphpなどプログラミングをしていきたいと考えてる人などはAtomやサクラエディタがよいです。
+補足として下記のものは有料ですがよく使われているものです</p>
+
+<h3 id="有料エディタ">有料エディタ</h3>
+<ul>
+  <li><strong>秀丸</strong><br />
+現在は無料のものが多数あるのですが昔秀丸はとても優秀でライセンスを買っているプログラマーもたくさんいました。現在では無料のソフトでもほぼ同機能のことができます。</li>
+  <li><strong>Sublim text</strong><br />
+有料である分いろいろな機能があります。どのOS(Windows Mac）でも同じことができるので特にMac利用者に人気があるそうです</li>
+  <li><strong>Dreamweaver</strong><br />
+IDEよりのエディタ。記述したCSSなどがすぐ見れるプレビュー機能などが有る。</li>
+</ul>
+
+<h2 id="ブラウザとエディタがあればhtmlは書けます">ブラウザとエディタがあればhtmlは書けます</h2>
+<p>ブラウザとエディタを準備しましたが基本的なことはこれだけでhtmlを書き始めることができます。次の章からは実際にhtmlを書きながら理解していきましょう。</p>
+
+  <div class="paging">
+    <div class="paging-left">
+      
+    </div>
+    <div class="paging-right">
+      
+        <a href="/htmlentry/2018/02/01/htmlentry2.html">HTML入門[第二回]タグを理解する<i class="material-icons paging-icon">chevron_right</i></a>
+      
+    </div>
+  </div>
+</main>
+<aside class="content-aside">
+  <div class="aside-article">
+    <span class="aside-label">Category</span>
+    <ul class="aside-list">
+    
+    
+      <li><a href="/categories/cssappli">CSS応用</a></li>
+    
+      <li><a href="/categories/cssentry">CSS入門</a></li>
+    
+      <li><a href="/categories/environment">環境構築</a></li>
+    
+      <li><a href="/categories/htmlentry">HTML入門</a></li>
+    
+      <li><a href="/categories/htmlpre">HTML初級</a></li>
+    
+      <li><a href="/categories/htmltopic">HTML/CSSトピック</a></li>
+    
+      <li><a href="/categories/pcelement">パソコンの基礎</a></li>
+    
+    </ul>
+  </div>
+</aside>
+
+    </div>
+    <!-- page top button -->
+    <a class="btn-pagetop btn-floating btn-large brandcolor">
+      <i class="large material-icons">arrow_upward</i>
+    </a>
+    <footer class="page-footer footercolor">
+      <div class="footer-copyright">
+        <div class="container">
+          &copy;2018 Copyright
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

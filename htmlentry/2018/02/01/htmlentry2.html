@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>HTML入門[第二回]タグを理解するSpiritIt</title>
+  <!-- stylesheet -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/materialize.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/prism.css">
+  <!-- js -->
+  <script src="/assets/js/jquery/jquery.min.js"></script>
+  <script src="/assets/js/site.js"></script>
+  <script src="/assets/js/prism.js"></script>
+
+  <meta name="description" content="サイトディスクリプションを記述します
+">
+  <meta name="viewport" content="width=device-width">
+</head>
+<body>
+  <div class="content">
+    <header>
+      <nav class="brandcolor">
+        <div class="container">
+          <div class="nav-wrapper">
+            <a href="/" class="brand-logo">SpiritIt</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              
+                <li><a href="/categories/htmlentry">HTML入門</a></li>
+              
+                <li><a href="/categories/cssappli">CSS応用</a></li>
+              
+                <li><a href="/categories/cssentry">CSS入門</a></li>
+              
+                <li><a href="/categories/htmltopic">HTML/CSSトピック</a></li>
+              
+                <li><a href="/categories/htmlpre">HTML初級</a></li>
+              
+                <li><a href="/categories/pcelement">パソコンの基礎</a></li>
+              
+                <li><a href="/categories/environment">環境構築</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="content-wrap">
+      <main class="content-body">
+  <span class="post-category">HTML入門</span>
+  <h1>HTML入門[第二回]タグを理解する</h1>
+  <div class="chip">
+    <i class="material-icons v-middle">access_time</i>
+    2018年02月01日
+  </div>
+  <h2 id="htmlはすべてhtmlタグを使って記述されています">HTMLはすべてHTMLタグを使って記述されています</h2>
+<p>インターネットで見るすべてのホームページはhtmlで記述されています。phpなどのプログラムで作られているホームページも最終的にはhtmlをプログラムが出力しているだけで、最終的にはすべてhtmlになります。今見ているページもすべてhtmlで記述されております。ブラウザでは実際のhtmlがどのようなものか見れるので見てみましょう。<br />
+<span class="text_b_red">※html文書に限らずプログラムが書かれたものをソース（ソースコード）と呼びます。</span></p>
+
+<h3 id="試しにインターネットのページのhtmlを見る">試しにインターネットのページのhtmlを見る</h3>
+<p>他の人のホームページを参考にする際などhtmlを見たいときには下記のようにして見てください。</p>
+
+<p>見たいページの何もないところで右クリックを押してください。
+<img src="/assets/img/htmlentry_2/htmlentry_2_1.jpg" alt="entry2_1" /></p>
+
+<p>右クリックで表示されたメニューからページのソースを表示をクリック
+<img src="/assets/img/htmlentry_2/htmlentry_2_2.jpg" alt="entry2_2" /></p>
+
+<p>表示された下記のような文章がHTMLです
+<img src="/assets/img/htmlentry_2/htmlentry_2_3.jpg" alt="entry2_3" /></p>
+
+<h2 id="htmlタグを見る">HTMLタグを見る</h2>
+<p>html文書を見るとすべての記述が記号の小なり「&lt;」と記号の大なり「&gt;」で挟まれた文字で記述されています。この小なりと大なりで囲まれた文字をタグと呼びます。
+<img src="/assets/img/htmlentry_2/htmlentry_2_4.jpg" alt="entry2_4" /><br />
+タグの記述の仕方は3種類あり</p>
+
+<ul>
+  <li><span class="text_b_blue">&lt;タグ名&gt;</span><br />
+タグのみで意味を成すもの</li>
+  <li><span class="text_b_blue">&lt;タグ名&gt;要素&lt;/タグ名&gt;</span> <br />
+タグとタグ名にスラッシュを付けた終了タグで文書などを挟むもの。タグで挟まれた文書などを要素といいます</li>
+  <li><span class="text_b_blue">&lt;タグ名 /&gt;</span><br />
+一つのタグで最後に閉じる証としてスラッシュ「/」を記述するものxhtmlを記述する際に用います
+と以上の３つの種類があります。そして<title>をタイトルタグ<meta />をメタタグといいます。タグの中に書かれた文字＋タグというように〇〇タグと基本的には呼びます。</title></li>
+</ul>
+
+<p>と以上の３つの種類があります。そして&lt;title&gt;をタイトルタグ&lt;meta&gt;をメタタグといいます。タグの中に書かれた文字＋タグというように〇〇タグと基本的には呼びます。</p>
+
+<h2 id="htmlタグの属性">HTMLタグの属性</h2>
+<p>タグを見てみると、&lt;head&gt;などのようにタグ名だけが記述されているものもありますが、&lt;meta charset=”UTF-8“&gt;のようにcharaset=”UTF-8″などとタグ名以外のことも記述されているタグがたくさんあります。この記述のcharasetを<span class="text_b_blue">属性</span>と呼びUTF-8を<span class="text_b_green">属性値</span>と呼びます。タグには様々な属性値を設定することができ見た目や動きなどを細かく設定するための機能です。</p>
+
+<p>例えば&lt;html lang=”ja”&gt;とあります。&lt;html&gt;と&lt;/html&gt;に挟まれた内側はすべてhtmlで記述されていますという意味のタグです。さらに属性でlang=”ja”とすることで中に書かれている文書は日本語で記述されていますという属性が設定されています。この設定がない場合に別の言語のパソコンで見たときに違う文字が表示される（いわゆる文字化けが起こる）可能性があります。</p>
+
+<p>HTMLを書くということはこのタグと属性値を書くことがすべてです。すべてのタグや属性を覚える必要はありません、どのようなタグがあったかだけを覚えておけば調べながらでもHTMLをかけるようになります。しかしタグや属性などといった調べるとき必要な言葉は覚えてしまいましょう。</p>
+
+<h2 id="htmlにはバージョンがあります">HTMLにはバージョンがあります</h2>
+<p>バージョンがあるということだけ覚えてください。現在公開されているホームページのほとんどすべては下記３つのバージョンいずれかのhtmlで記述されています。</p>
+<ul>
+  <li>html 4</li>
+  <li>xhtml</li>
+  <li>html 5</li>
+</ul>
+
+<p>ほとんどのページはhtml5になってきているので基本的にはhtml4やxhtmlなどは理解する必要はありません。htmlは当初の目的とは少し違った発展をとげてきました。世界中のパソコンからブラウザさえあれば同じように表示される便利な文書として商用や趣味など多岐にわたる目的で使用されています。その発展に伴い新しいタグや不要となるタグが出てきてその都度新しいバージョンとしてhtmlが新しくなってきていまのhtml5に至ります。</p>
+
+<p>htmlのバージョンは大きく動きが違うなどといったことはありません、<span class="text_b_red">どのタグが利用できてどのタグが利用できないという取り決めだけ</span>なのです。そして現在html5が勧告されてからだいぶ時間が立ちhtml5が処理できないブラウザはほぼサポート対象外になっているのでhtmlの<span class="text_b_red">バージョンを気にする必要はほぼありません。</span>一部のWebサービスで重要なお客さんが古いPCでないとダメであるといったケースのみhtml4でも対応できる記述方法はありますがほぼ考えられません。</p>
+
+<h2 id="doctype宣言">DOCTYPE宣言</h2>
+<p>htmlのバージョンはhtml冒頭に必ず記載する&lt;!DOCTYPE&gt;の部分で決まります。xhtmlのみDOCTYPE宣言前にxmlであることを宣言する必要があります。今後作るhtmlは特殊な事情や指定がない限りhtml5でよいです。</p>
+
+<ul>
+  <li>html5<br />
+&lt;!DOCTYPE html&gt;</li>
+  <li>html4<br />
+厳密型-W3c非推奨のタグや属性が使えません（見た目に関する属性など）<br />
+&lt;!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01//EN” “http://www.w3.org/TR/html4/strict.dtd”&gt;</li>
+  <li>html4<br />
+移行型-w3c非推奨のタグや属性が使える</li>
+  <li>xhtml<br />
+&lt;!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01 Transitional//EN” “http://www.w3.org/TR/html4/loose.dtd”&gt;<br />
+&lt;?xml version=”1.0″ encoding=”UTF-8″?&gt;<br />
+&lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Strict//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd”&gt;</li>
+</ul>
+
+<div class="chusyaku">htmlのバージョンの中にはxhtmlという特殊なものもあります。これはhtmlはxmlとしても処理できればパソコンで処理がしやすく便利と考えて規定されたhtmlです。ところが基本的にタグを閉じないとエラーとなりすべて表示されないなどhtmlの敷居を少し上げてしまうためかほとんど普及しませんでした。膨大な数の他人のHTMLを解析するロボットの開発などにはメリットがあるかもしれませんが、htmlを書く側にとってはエラーが出るとすべて表示されないというデメリットしかなくxhtmlの定義に従ってhtmlを作るメリットがありませんでした。そのため発展はせず一部几帳面な人やプロジェクトのみで守られているようです。</div>
+
+  <div class="paging">
+    <div class="paging-left">
+      
+        <a href="/htmlentry/2018/02/01/htmlentry1.html"><i class="material-icons paging-icon">chevron_left</i>HTML入門[第一回]入門</a>
+      
+    </div>
+    <div class="paging-right">
+      
+        <a href="/htmlentry/2018/02/01/htmlentry3.html">HTML入門[第三回]HTMLを作成してみる<i class="material-icons paging-icon">chevron_right</i></a>
+      
+    </div>
+  </div>
+</main>
+<aside class="content-aside">
+  <div class="aside-article">
+    <span class="aside-label">Category</span>
+    <ul class="aside-list">
+    
+    
+      <li><a href="/categories/cssappli">CSS応用</a></li>
+    
+      <li><a href="/categories/cssentry">CSS入門</a></li>
+    
+      <li><a href="/categories/environment">環境構築</a></li>
+    
+      <li><a href="/categories/htmlentry">HTML入門</a></li>
+    
+      <li><a href="/categories/htmlpre">HTML初級</a></li>
+    
+      <li><a href="/categories/htmltopic">HTML/CSSトピック</a></li>
+    
+      <li><a href="/categories/pcelement">パソコンの基礎</a></li>
+    
+    </ul>
+  </div>
+</aside>
+
+    </div>
+    <!-- page top button -->
+    <a class="btn-pagetop btn-floating btn-large brandcolor">
+      <i class="large material-icons">arrow_upward</i>
+    </a>
+    <footer class="page-footer footercolor">
+      <div class="footer-copyright">
+        <div class="container">
+          &copy;2018 Copyright
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

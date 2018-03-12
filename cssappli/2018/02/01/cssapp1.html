@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>【Layout全般】ブラウザ間で表示の差をなくすSpiritIt</title>
+  <!-- stylesheet -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/materialize.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/prism.css">
+  <!-- js -->
+  <script src="/assets/js/jquery/jquery.min.js"></script>
+  <script src="/assets/js/site.js"></script>
+  <script src="/assets/js/prism.js"></script>
+
+  <meta name="description" content="サイトディスクリプションを記述します
+">
+  <meta name="viewport" content="width=device-width">
+</head>
+<body>
+  <div class="content">
+    <header>
+      <nav class="brandcolor">
+        <div class="container">
+          <div class="nav-wrapper">
+            <a href="/" class="brand-logo">SpiritIt</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              
+                <li><a href="/categories/htmlentry">HTML入門</a></li>
+              
+                <li><a href="/categories/cssappli">CSS応用</a></li>
+              
+                <li><a href="/categories/cssentry">CSS入門</a></li>
+              
+                <li><a href="/categories/htmltopic">HTML/CSSトピック</a></li>
+              
+                <li><a href="/categories/htmlpre">HTML初級</a></li>
+              
+                <li><a href="/categories/pcelement">パソコンの基礎</a></li>
+              
+                <li><a href="/categories/environment">環境構築</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="content-wrap">
+      <main class="content-body">
+  <span class="post-category">CSS応用</span>
+  <h1>【Layout全般】ブラウザ間で表示の差をなくす</h1>
+  <div class="chip">
+    <i class="material-icons v-middle">access_time</i>
+    2018年02月01日
+  </div>
+  <h2 id="ブラウザが違うと表示が違うことがよくあります">ブラウザが違うと表示が違うことがよくあります</h2>
+<p>Webサイトを見るブラウザは現在たくさんの種類とそれぞれにバージョンがあります。自分が作成したWebサイトなどは見る人がどのブラウザ（IEかChromeか等）のどのバージョンを利用するかを選べません。そして、ブラウザ毎に表示の設定が違うのでそれぞれ見た目が異なることがよくあります。</p>
+
+<p>ブラウザはそれぞれのデフォルトでスタイルシートを持っています。そのデフォルトのすたいーるシートをWebサイトなどで指定されたスタイルで上書きし表示しています。その際すべてのタグを上書きすれば問題はないのですが、基本的にすべてのタグを指定することは大変であるため上書きできされなかったタグが<strong>それぞれのブラウザで違う表示になってしまう</strong>ということが起こります。</p>
+
+<p>簡略図ですがブラウザがスタイルを適用していく順番です。
+それぞれ各ブラウザのデフォルトスタイルシートが適用され、そのスタイルをWebサイトのスタイルシートが上書きします。
+最終的なスタイルシートで表示を行うためWebサイトで指定されていないスタイルはすべてブラウザ毎のデフォルトスタイルになります。そのデフォルトが違う場合に当然表示が異なる結果になります。<br />
+<img src="/assets/img/cssapp_1/cssapp_1_1.jpg" alt="css_appli1" /><br />
+<img src="/assets/img/cssapp_1/cssapp_1_2.jpg" alt="css_appli1" /></p>
+
+<p>Webサイトをきちんと作成する場合には現状ほぼ全てのデザイナやプログラマはこのブラウザ間の表示を差をなくす処置をしています。（この処置をしてもまだブラウザ毎で違う表示になってしまう場合のものもありますが後述）</p>
+
+<p>たいていは下記に説明する<strong>リセット</strong>をするか<strong>ノーマライズ</strong>をするかのどちらかをするのが主流です。</p>
+
+<h3 id="リセット">リセット</h3>
+<p>リセット.cssの考え方はブラウザがもともと採用しているスタイルシートのほとんどをその名のとおり<strong>「リセット」</strong>してしまう対応です。Webサイトの全てのタグなどをフルデザインする場合にはとても有効です。ただし開発にスピードが求められている場合やデザインにそれほど力を入れたくない場合などは後述する「ノーマライズ」のほうがむいているかもしれません。</p>
+
+<p>有名なのは下記のようなリセットcssです</p>
+
+<p>[<a href="https://meyerweb.com/eric/tools/css/reset/" target="_blank">Eric Meyer’s CSS reset</a>]
+<img src="/assets/img/cssapp_1/cssapp_1_3.jpg" alt="css_appli1" /></p>
+
+<p>[<a href="https://yuilibrary.com/yui/docs/cssreset/" target="_blank">Yahoo! CSS Reset（YUI3）</a>]
+<img src="/assets/img/cssapp_1/cssapp_1_4.jpg" alt="css_appli1" /></p>
+
+<h3 id="ノーマライズ">ノーマライズ</h3>
+<p>ノーマライズの考え方はリセットとは異なり、ブラウザごとのデフォルトスタイルシートの差を吸収し同じように表示されるよう標準化します。リセットの場合であると基本的にはデザインをまだしていないものは何もデザインされず表示されるのでtableやulやh1～h6など良く使うものもきっちりデザインしないといけません。</p>
+
+<p>すべてをデザインする場合にはリセット、単純にブラウザ間で誤差をなくしたい場合にはノーマライズを使うのが正しいようです。</p>
+
+<p>下記のサイトのcssが有名です
+[<a href="http://necolas.github.io/normalize.css/" target="_blank">normalize.css</a>]<br />
+<img src="/assets/img/cssapp_1/cssapp_1_5.jpg" alt="css_appli1" /></p>
+
+<h4 id="normalizecssを取り込んでみる">normalize.cssを取り込んでみる</h4>
+<p>際にnormalize.cssを使ってノーマライズしてみます。</p>
+
+<p>上記normalize.cssのページに行きダウンロードボタンを押します。<br />
+<img src="/assets/img/cssapp_1/cssapp_1_6.jpg" alt="css_appli1" /></p>
+
+<p>一部のブラウザではダウンロードは始まらず
+直接cssのファイルが開く場合がありますのでその場合は全てを選択。
+<img src="/assets/img/cssapp_1/cssapp_1_7.jpg" alt="css_appli1" /></p>
+
+<p>右クリックをしてコピーを選択<br />
+<img src="/assets/img/cssapp_1/cssapp_1_8.jpg" alt="css_appli1" /></p>
+
+<p>cssファイルを設置する場所に[normalize.css]という空のファイルを作成。
+ダウンロードできた場合はnormalize.cssをここに移動またはコピーペーストします。<br />
+<img src="/assets/img/cssapp_1/cssapp_1_9.jpg" alt="css_appli1" /></p>
+
+<p>作成したファイルを開き、先ほどコピーした内容を貼り付けます。<br />
+<img src="/assets/img/cssapp_1/cssapp_1_10.jpg" alt="css_appli1" /></p>
+
+<p>メニューから<strong>[名前をつけて保存]</strong>を選びクリックします。<br />
+<img src="/assets/img/cssapp_1/cssapp_1_11.jpg" alt="css_appli1" /></p>
+
+<p>ダイアログが表示されるので<strong>[文字コード]</strong>でUTF-8を選び[保存ボタン]をクリックします。
+<img src="/assets/img/cssapp_1/cssapp_1_12.jpg" alt="css_appli1" /></p>
+
+<p>normalizeを取り込むhtmlを開き。headerタグで今設置したcssへの<strong>リンクを張ります。</strong>
+normalizeを取り込みたいhtmlを開きます。<br />
+<img src="/assets/img/cssapp_1/cssapp_1_13.jpg" alt="css_appli1" /></p>
+
+<p>linkタグでnormalize.cssへのリンクを張ります</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;</span><span class="err">!</span><span class="na">DOCTYE</span> <span class="na">html</span><span class="nt">&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+
+		<span class="c">&lt;!--normalizeは他のcssの前に読み込みます--&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/normalize.css"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+		test
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<h2 id="normalizecss確認方法">normalize.css確認方法</h2>
+<p>ノーマライズできているかどうかは若干分かりにくいです。その場合はh1タグをhtmlに記述し確認してください。
+下記のようにh1タグをテストとして追記します。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;</span><span class="err">!</span><span class="na">DOCTYE</span> <span class="na">html</span><span class="nt">&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/normalize.css"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+		<span class="nt">&lt;h1&gt;</span>test<span class="nt">&lt;/h1&gt;</span>
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>下記のように、文字がブラウザの一番左に詰めて表示されていればOKです
+<img src="/assets/img/cssapp_1/cssapp_1_14.jpg" alt="css_appli1" /></p>
+
+<h3 id="その他の方法としてcss-frameworkを利用">その他の方法としてCSS FrameWorkを利用</h3>
+<p>その他ブラウザ毎で表示の差が出ないようにするには、BootstrapなどのCSS FrameWorkと呼ばれるものを使うことでも対応できます。これはそのCSS FrameWorkが基本的にはリセットまたはノーマライズを内部的に行っているからです。</p>
+
+<p>上記のようにしてWebサイトを作る際にブラウザ間での表示のズレを出来るだけなくすようにするのが標準的なWebサイトの作り方となっています。</p>
+
+  <div class="paging">
+    <div class="paging-left">
+      
+        <a href="/htmlentry/2018/02/01/htmlentry5.html"><i class="material-icons paging-icon">chevron_left</i>HTML入門[第五回]チートシート</a>
+      
+    </div>
+    <div class="paging-right">
+      
+        <a href="/cssappli/2018/02/01/cssapp2.html">【Layout全般】paddingとborderとmarginの計算<i class="material-icons paging-icon">chevron_right</i></a>
+      
+    </div>
+  </div>
+</main>
+<aside class="content-aside">
+  <div class="aside-article">
+    <span class="aside-label">Category</span>
+    <ul class="aside-list">
+    
+    
+      <li><a href="/categories/cssappli">CSS応用</a></li>
+    
+      <li><a href="/categories/cssentry">CSS入門</a></li>
+    
+      <li><a href="/categories/environment">環境構築</a></li>
+    
+      <li><a href="/categories/htmlentry">HTML入門</a></li>
+    
+      <li><a href="/categories/htmlpre">HTML初級</a></li>
+    
+      <li><a href="/categories/htmltopic">HTML/CSSトピック</a></li>
+    
+      <li><a href="/categories/pcelement">パソコンの基礎</a></li>
+    
+    </ul>
+  </div>
+</aside>
+
+    </div>
+    <!-- page top button -->
+    <a class="btn-pagetop btn-floating btn-large brandcolor">
+      <i class="large material-icons">arrow_upward</i>
+    </a>
+    <footer class="page-footer footercolor">
+      <div class="footer-copyright">
+        <div class="container">
+          &copy;2018 Copyright
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
