@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>HTML初級[第五回]-ヘッダを作成SpiritIt</title>
+  <!-- stylesheet -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/spiritit/assets/css/materialize.css">
+  <link rel="stylesheet" href="/spiritit/assets/css/style.css">
+  <link rel="stylesheet" href="/spiritit/assets/css/prism.css">
+  <!-- js -->
+  <script src="/spiritit/assets/js/jquery/jquery.min.js"></script>
+  <script src="/spiritit/assets/js/site.js"></script>
+  <script src="/spiritit/assets/js/prism.js"></script>
+
+  <meta name="description" content="サイトディスクリプションを記述します
+">
+  <meta name="viewport" content="width=device-width">
+</head>
+<body>
+  <div class="content">
+    <header>
+      <nav class="brandcolor">
+        <div class="container">
+          <div class="nav-wrapper">
+            <a href="/spiritit" class="brand-logo">SpiritIt</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              
+                <li><a href="/spiritit/categories/htmlentry">HTML入門</a></li>
+              
+                <li><a href="/spiritit/categories/cssappli">CSS応用</a></li>
+              
+                <li><a href="/spiritit/categories/cssentry">CSS入門</a></li>
+              
+                <li><a href="/spiritit/categories/htmltopic">HTML/CSSトピック</a></li>
+              
+                <li><a href="/spiritit/categories/htmlpre">HTML初級</a></li>
+              
+                <li><a href="/spiritit/categories/pcelement">パソコンの基礎</a></li>
+              
+                <li><a href="/spiritit/categories/environment">環境構築</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="content-wrap">
+      <main class="content-body">
+  <span class="post-category">HTML初級</span>
+  <h1>HTML初級[第五回]-ヘッダを作成</h1>
+  <div class="chip">
+    <i class="material-icons v-middle">access_time</i>
+    2018年03月06日
+  </div>
+  <h2 id="ヘッダのコンテンツを確認">ヘッダのコンテンツを確認</h2>
+<p>ヘッダで表示しているのは事業番号などテキストのみです。</p>
+
+<p>ですが、ヘッダの一番上を見てみてください。２本のラインと少し立体感を出すための影があります。これは実は同じ画像を横に並べたデザインになっています。css3であれば画像を使わずに同じことができますが下記の画像を使って見ましょう。</p>
+
+<p>まずはこの下の画像をダウンロードしてcssと同じようにimgというフォルダを作成して保存します。<br />
+<img src="/spiritit/assets/img/htmlpre_5/back.jpg" alt="htmlpre_5" /></p>
+
+<h3 id="ダウンロードの仕方">ダウンロードの仕方</h3>
+<p>ダウンロードするにはまず上の画像を右クリックします<br />
+<img src="/spiritit/assets/img/htmlpre_5/htmlpre_5_1.jpg" alt="htmlpre_5" /></p>
+
+<p>表示されたメニューから「名前を指定して保存」を選びます<br />
+<img src="/spiritit/assets/img/htmlpre_5/htmlpre_5_2.jpg" alt="htmlpre_5" /></p>
+
+<p>表示された画面（ダイアログといいます）でcssのあるフォルダまで移動します。<br />
+そこで何もないところで右クリックをします。<br />
+<img src="/spiritit/assets/img/htmlpre_5/htmlpre_5_3.jpg" alt="htmlpre_5" /></p>
+
+<p>表示されたメニューから[新規作成]-[フォルダ]を選びます<br />
+<img src="/spiritit/assets/img/htmlpre_5/htmlpre_5_4.jpg" alt="htmlpre_5" /></p>
+
+<p>フォルダ名にimgをつけて開きます。<br />
+<img src="/spiritit/assets/img/htmlpre_5/htmlpre_5_6.jpg" alt="htmlpre_5" /></p>
+
+<p>保存ボタンを押しますファイル名はおそらくback.jpgとしてください。<br />
+<img src="/spiritit/assets/img/htmlpre_5/htmlpre_5_5.jpg" alt="htmlpre_5" /></p>
+
+<h2 id="背景イメージに今のファイルを指定">背景イメージに今のファイルを指定</h2>
+<p>今保存したファイルをheaderタグの背景として設定します。
+cssを編集して下記のようになるよう修正してください。</p>
+
+<h3 id="バックグラウンドイメージを指定">バックグラウンドイメージを指定</h3>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">header</span><span class="p">{</span>
+	<span class="nl">background-image</span><span class="p">:</span> <span class="sx">url(../img/back.jpg)</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>headerの色を消してbackground-imageというプロパティを設定してください。これは背景に画像を使いますというプロパティです。url(・・・)という部分はその画像の場所を示しています。上記の”../img/back.jpg”の[..]という記号はこのcssファイルから見て「一つ上のフォルダの」という意味です。</p>
+
+<p>「一つ上のフォルダのimgというフォルダにあるback.jpgです」という意味になります。これは相対パスという指定の方法ですが今は覚えなくてもよいです。htmlを学んでいればいろいろなところに出てきて必然的に覚えます。</p>
+<div class="chusyaku">同じフォルダを指す場合[..]の記号が[.]と一つになります。</div>
+
+<p>index.htmlをブラウザで確認すると下記のようになっているはずです。<br />
+<img src="/spiritit/assets/img/htmlpre_5/htmlpre_5_7.jpg" alt="htmlpre_5" /></p>
+
+<h3 id="高さを指定">高さを指定</h3>
+<p>少し高さが低いのでお手本の高さに合わせます。この高さはお手本では60pxになっています。CSSを編集して高さを60pxにしてみましょう。高さを指定するプロパティはheightというプロパティです。</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">header</span><span class="p">{</span>
+	<span class="nl">background-image</span><span class="p">:</span> <span class="sx">url(../img/back.jpg)</span><span class="p">;</span>
+	<span class="nl">height</span><span class="p">:</span> <span class="m">60px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>下記のように２列表されてしまったはずです。<br />
+background-imageは特に指定がない場合敷き詰めるように表示してくれます。<br />
+<img src="/spiritit/assets/img/htmlpre_5/htmlpre_5_8.jpg" alt="htmlpre_5" /></p>
+
+<h3 id="イメージの並べ方を指定">イメージの並べ方を指定</h3>
+<p>繰り返し横にだけ並べたいのでCSSを編集しましょう。この繰り返しを設定するプロパティはbackground-repeatというプロパティです。</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">header</span><span class="p">{</span>
+	<span class="nl">background-image</span><span class="p">:</span> <span class="sx">url(../img/back.jpg)</span><span class="p">;</span>
+	<span class="nl">background-repeat</span><span class="p">:</span> <span class="nb">repeat-x</span><span class="p">;</span>
+	<span class="nl">height</span><span class="p">:</span> <span class="m">60px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>上記のように修正してください。これも順番は何でもよいのですが見やすいようにbackgroundのものはまとめて記述してあります。<br />
+表示結果が下記のようになるはずです。<br />
+<img src="/spiritit/assets/img/htmlpre_5/htmlpre_5_9.jpg" alt="htmlpre_5" /></p>
+
+<p>背景にイメージを利用するやり方はいったん終了です。</p>
+
+<h2 id="cssノーマライズ">CSSノーマライズ</h2>
+<p>ここでガラッと話を変えて、ノーマライズというのを行います。詳細は<a href="/spiritit/cssappli/2018/02/01/cssapp1.html" target="_bnank">こちら</a>を参考にしてください。</p>
+
+<p>簡単に言ってしまうと、HTML文書を見るブラウザはたくさんありますWindowsとMacを使うかで標準のブラウザも違うしスマホの機種などでも変わってきます。この差をいったんすべてなくすために必要な作業です。</p>
+
+<p>今作ったページをChromeでよく見るとサイト全体の表示に少し隙間があります。<br />
+これは実は隙間がなく見えるブラウザもあるのです。これはノーマライズまたはリセットされていないデザインで起こります。<br />
+<img src="/spiritit/assets/img/htmlpre_5/htmlpre_5_10.jpg" alt="htmlpre_5" /></p>
+
+<h3 id="ノーマライズをする">ノーマライズをする</h3>
+<p>style.cssのあるフォルダにnormalize.cssというフォルダを作成してください。style.cssと同様にuft-8という文字コードで保存してください。<br />
+<img src="/spiritit/assets/img/htmlpre_5/htmlpre_5_11.jpg" alt="htmlpre_5" /></p>
+
+<p>そして<a href="https://necolas.github.io/normalize.css/8.0.0/normalize.css" target="_blank">こちら</a> のサイトへいき、内容をすべてコピーします。<br />
+<img src="/spiritit/assets/img/htmlpre_5/htmlpre_5_12.jpg" alt="htmlpre_5" /></p>
+
+<p>先ほど作成したnormalize.cssにその内容を貼り付けて保存します。<br />
+<img src="/spiritit/assets/img/htmlpre_5/htmlpre_5_13.jpg" alt="htmlpre_5" /></p>
+
+<p>そしてhtmlを修正してそのnormalize.cssへリンクを張ります。下記のようになるようheaderにタグを追加してください。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+	<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/normalize.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;title&gt;</span>サンプル<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+</code></pre></div></div>
+<p>このnormalize.css<strong>と</strong>style.css**の<span class="text_b_red">順番</span>は厳守してください。normalize.cssはどのcssより先に読み込まれなければその内容が変更されません。</p>
+
+<p>先ほどの少しあった隙間がなくなっていればノーマライズは完了です。</p>
+
+<h2 id="内容を記述">内容を記述</h2>
+<p>現在ヘッダという文字を記述してある箇所を、掲載してある事業所番号をコピーして貼り付けてみましょう。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;body&gt;</span>
+
+	<span class="nt">&lt;header&gt;</span>
+		ヘッダ
+	<span class="nt">&lt;/header&gt;</span>
+</code></pre></div></div>
+<p>を修正して下記になるよう修正</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;body&gt;</span>
+
+	<span class="nt">&lt;header&gt;</span>
+		【就労移行支援事業】東京都許可（指定事業所番号1311102238）　一般社団法人Spirit運営
+	<span class="nt">&lt;/header&gt;</span>
+</code></pre></div></div>
+
+<p>そうです、現在は表示位置を何も指定していないため左上に詰めて表示されています。</p>
+
+<h3 id="他のコンテンツに合わせて右寄せ">他のコンテンツに合わせて右寄せ</h3>
+<p>本来はメインコンテンツの右側にそろえて表示されていて、画面上部から26pxの隙間があり、下のメインコンテンツとの間は15pxあります。 また文字の大きさはサイトで使っている文字より少し小さい85%の大きさになっています。これを指定していきましょう。</p>
+
+<h3 id="htmlの修正">htmlの修正</h3>
+<p>ヘッダーはバックグラウンドイメージがあるので幅は指定できません。そのためasideとmainの時にしたようにheaderにも内側にdivを設けて設定しましょう</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;body&gt;</span>
+
+	<span class="nt">&lt;header&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container right"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"company-no"</span><span class="nt">&gt;</span>【就労移行支援事業】東京都許可（指定事業所番号1311102238）　一般社団法人Spirit運営<span class="nt">&lt;/span&gt;</span>
+		<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;/header&gt;</span>
+</code></pre></div></div>
+<p>上記のように修正してください。クラスをcontainerとright二つ指定できます。containerはfooterでも同じような目的で使うように右寄せするためのrightと分けて作ります。</p>
+
+<h3 id="cssの修正">cssの修正</h3>
+<p>まずヘッダの修正、先ほどしたcontent-bodyの時と同様flexboxとして指定し内容を中央よせで表示するようにします。また事業番号の記述の上下の隙間であるpaddingというプロパティを設定します。</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">header</span><span class="p">{</span>
+	<span class="nl">background-image</span><span class="p">:</span> <span class="sx">url(../img/back.jpg)</span><span class="p">;</span>
+	<span class="nl">background-repeat</span><span class="p">:</span> <span class="nb">repeat-x</span><span class="p">;</span>
+	<span class="nl">height</span><span class="p">:</span> <span class="m">60px</span><span class="p">;</span>
+	<span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+	<span class="nl">justify-content</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+	<span class="nl">padding-top</span><span class="p">:</span> <span class="m">26px</span><span class="p">;</span>
+	<span class="nl">padding-bottom</span><span class="p">:</span> <span class="m">15px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>そして、下記の３つのクラスを追加します</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.container</span><span class="p">{</span>
+	<span class="nl">width</span><span class="p">:</span> <span class="m">920px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.right</span><span class="p">{</span>
+	<span class="nl">text-align</span><span class="p">:</span> <span class="nb">right</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.company-no</span><span class="p">{</span>
+	<span class="nl">font-size</span><span class="p">:</span> <span class="m">85%</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><strong>container</strong>は下に表示されているasideとmainの幅を足したものです。下の表示と幅を合わせるときに使う手法です。</p>
+
+<p><strong>right</strong>は文字を右寄せにするクラスです。</p>
+
+<p><strong>company-no</strong>はここでしか使わなそうなのでこちらもクラスを分けました。　</p>
+
+<p>ところが、index.htmlを確認してみるとなんだかヘッダとメインの間が空きすぎてしまいます。</p>
+
+<p><img src="/spiritit/assets/img/htmlpre_5/htmlpre_5_14.jpg" alt="htmlpre_5" /></p>
+
+<p>これはpaddingの計算の仕方がブラウザによって異なることで起こります。headerに指定した60pxという高さと要素の隙間を指定した26pxおよび15pxというサイズをすべて足してしまう計算方法をとる場合もあるのです。これを防ぐためにstyle.cssへ追記してください。場所は一番先頭が良いです。</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">*</span><span class="p">{</span>
+	<span class="nl">box-sizing</span><span class="p">:</span> <span class="n">border-box</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>簡単な表現でいうことがむつかしい内容ですが、CSSで高さが指定されている場合、要素の高さを計算する際に内容のpaddingやmarginは計算に含まないという内容です。<a href="/spiritit/cssappli/2018/02/01/cssapp2.html" target="_blank">こちら</a>で説明していますので参考にしてください。</p>
+
+<p>下記のよう想定していない隙間がなくなっていればOKです。<br />
+<img src="/spiritit/assets/img/htmlpre_5/htmlpre_5_15.jpg" alt="htmlpre_5" /><br />
+これでいったんヘッダに関しては終了です。</p>
+
+  <div class="paging">
+    <div class="paging-left">
+      
+        <a href="/spiritit/htmlpre/2018/03/06/htmlpre4.html"><i class="material-icons paging-icon">chevron_left</i>HTML初級[第四回]-全体のレイアウト作成(2)</a>
+      
+    </div>
+    <div class="paging-right">
+      
+        <a href="/spiritit/htmlpre/2018/03/06/htmlpre6.html">HTML初級[第六回]-メニュー部分を作成<i class="material-icons paging-icon">chevron_right</i></a>
+      
+    </div>
+  </div>
+</main>
+<aside class="content-aside">
+  <div class="aside-article">
+    <span class="aside-label">Category</span>
+    <ul class="aside-list">
+    
+    
+      <li><a href="/spiritit/categories/cssappli">CSS応用</a></li>
+    
+      <li><a href="/spiritit/categories/cssentry">CSS入門</a></li>
+    
+      <li><a href="/spiritit/categories/environment">環境構築</a></li>
+    
+      <li><a href="/spiritit/categories/htmlentry">HTML入門</a></li>
+    
+      <li><a href="/spiritit/categories/htmlpre">HTML初級</a></li>
+    
+      <li><a href="/spiritit/categories/htmltopic">HTML/CSSトピック</a></li>
+    
+      <li><a href="/spiritit/categories/pcelement">パソコンの基礎</a></li>
+    
+    </ul>
+  </div>
+</aside>
+
+    </div>
+    <!-- page top button -->
+    <a class="btn-pagetop btn-floating btn-large brandcolor">
+      <i class="large material-icons">arrow_upward</i>
+    </a>
+    <footer class="page-footer footercolor">
+      <div class="footer-copyright">
+        <div class="container">
+          &copy;2018 Copyright
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

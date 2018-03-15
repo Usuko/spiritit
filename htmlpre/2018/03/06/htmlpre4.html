@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>HTML初級[第四回]-全体のレイアウト作成(2)SpiritIt</title>
+  <!-- stylesheet -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/spiritit/assets/css/materialize.css">
+  <link rel="stylesheet" href="/spiritit/assets/css/style.css">
+  <link rel="stylesheet" href="/spiritit/assets/css/prism.css">
+  <!-- js -->
+  <script src="/spiritit/assets/js/jquery/jquery.min.js"></script>
+  <script src="/spiritit/assets/js/site.js"></script>
+  <script src="/spiritit/assets/js/prism.js"></script>
+
+  <meta name="description" content="サイトディスクリプションを記述します
+">
+  <meta name="viewport" content="width=device-width">
+</head>
+<body>
+  <div class="content">
+    <header>
+      <nav class="brandcolor">
+        <div class="container">
+          <div class="nav-wrapper">
+            <a href="/spiritit" class="brand-logo">SpiritIt</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              
+                <li><a href="/spiritit/categories/htmlentry">HTML入門</a></li>
+              
+                <li><a href="/spiritit/categories/cssappli">CSS応用</a></li>
+              
+                <li><a href="/spiritit/categories/cssentry">CSS入門</a></li>
+              
+                <li><a href="/spiritit/categories/htmltopic">HTML/CSSトピック</a></li>
+              
+                <li><a href="/spiritit/categories/htmlpre">HTML初級</a></li>
+              
+                <li><a href="/spiritit/categories/pcelement">パソコンの基礎</a></li>
+              
+                <li><a href="/spiritit/categories/environment">環境構築</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="content-wrap">
+      <main class="content-body">
+  <span class="post-category">HTML初級</span>
+  <h1>HTML初級[第四回]-全体のレイアウト作成(2)</h1>
+  <div class="chip">
+    <i class="material-icons v-middle">access_time</i>
+    2018年03月06日
+  </div>
+  <h2 id="コンテンツの幅を設定する">コンテンツの幅を設定する</h2>
+<p>いったんお手本であるSpiritのサイトを見てみましょう。ウインドウのサイズの幅を伸び縮みさせているとわかるのですがこのサイトに限らずほとんどのサイトはコンテンツの幅が決まっていて画面の中央に表示されています。</p>
+
+<p>そして余った部分が余白として伸び縮して中のコンテンツの幅は固定されています。<br />
+<img src="/spiritit/assets/img/htmlpre_4/htmlpre_4_9.jpg" alt="htmlpre_4" />　</p>
+
+<p>このコンテンツの幅を固定して中央に表示するにはまずサイト全体をdivタグの中に入れる必要があります。
+ここで、サイト全体といった場合bodyタグの下に当たります。ブラウザで表示されている部分はbodyタグの中が基本です。</p>
+
+<p>今作るサイトの場合、幅はサイト全体ではなくasideとmainの幅だけでウインドウサイズとの差分は余白として表示します。</p>
+
+<h2 id="asidemainの幅を指定する">aside,mainの幅を指定する</h2>
+<p>現在あるサイトから幅を調べる方法は今回割愛します。<br />
+結論から言うとasideは220px,mainは700pxのデザインです。
+<img src="/spiritit/assets/img/htmlpre_4/htmlpre_4_6.jpg" alt="htmlpre_4" /></p>
+
+<p>それでは先ほどと同様にcssを編集します。</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">header</span><span class="p">{</span>
+	<span class="nl">background-color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">aside</span><span class="p">{</span>
+	<span class="nl">background-color</span><span class="p">:</span><span class="no">blue</span><span class="p">;</span>
+	<span class="nl">width</span><span class="p">:</span><span class="m">220px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">main</span><span class="p">{</span>
+	<span class="nl">background-color</span><span class="p">:</span><span class="no">green</span><span class="p">;</span>
+	<span class="nl">width</span><span class="p">:</span><span class="m">700px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">footer</span><span class="p">{</span>
+	<span class="nl">background-color</span><span class="p">:</span><span class="no">yellow</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.content-body</span><span class="p">{</span>
+	<span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+	<span class="nl">flex-direction</span><span class="p">:</span> <span class="n">row</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>asideとmainにwidthというプロパティを追記しました。</p>
+
+<p>結果を見てみましょう。
+幅はよいですが、現在何も指定していないため左側に寄っています。<br />
+<img src="/spiritit/assets/img/htmlpre_4/htmlpre_4_10.jpg" alt="htmlpre_4" /></p>
+
+<h2 id="中央表示">中央表示</h2>
+<p>この方法は本当にたくさんありますが現在flexboxという強力なcssが一般的になっているのでそれを利用します。
+それ以外の方法は少し記述する内容が多いですがこの場合１行追記するだけです。</p>
+
+<p>先ほど触れたflexboxには中身の要素を中央よせするというプロパティを持っています。justify-contentというプロパティです。下記のようにcontent-bodyにプロパティを追加してください。</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.content-body</span><span class="p">{</span>
+	<span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+	<span class="nl">flex-direction</span><span class="p">:</span> <span class="n">row</span><span class="p">;</span>
+	<span class="nl">justify-content</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>  <span class="err">//←この行を追加</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><img src="/spiritit/assets/img/htmlpre_4/htmlpre_4_11.jpg" alt="htmlpre_4" /></p>
+
+<p>上記のようになっていればひとまず大きなレイアウトに関して完了です。
+次からはコンテンツを人エリア毎追加していきましょう。</p>
+
+<h2 id="背景色とフォント">背景色とフォント</h2>
+<p>Spiritのサイトは背景色が決まっています。全体の背景色とフォントをまず合わせておきましょう。CSSファイルを修正して下記のようにしてください。このbodyを設定したクラスをcssファイルの先頭に貼り付けてください。</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span>
+	<span class="nl">font-size</span><span class="p">:</span> <span class="n">small</span><span class="p">;</span>
+	<span class="nl">font-family</span><span class="p">:</span> <span class="n">verdana</span><span class="p">,</span><span class="s1">"ヒラギノ角ゴ Pro W3"</span><span class="p">,</span><span class="s1">"Hiragino Kaku Gothic Pro"</span><span class="p">,</span><span class="n">Osaka</span><span class="p">,</span><span class="s1">"ＭＳ Ｐゴシック"</span><span class="p">,</span><span class="s1">"MS PGothic"</span><span class="p">,</span><span class="n">Sans-Serif</span><span class="p">;</span>
+	<span class="nl">color</span><span class="p">:</span> <span class="m">#535353</span><span class="p">;</span>
+	<span class="nl">background-color</span><span class="p">:</span> <span class="m">#F8F3ED</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>サイト全体のフォントはsmallという大きさで、フォントは上にあげたフォントからこの文章を読むパソコンにあるものを使っていきます。背景色は#F8F3EDという色を使うという意味です。</p>
+
+  <div class="paging">
+    <div class="paging-left">
+      
+        <a href="/spiritit/htmlpre/2018/03/06/htmlpre3.html"><i class="material-icons paging-icon">chevron_left</i>HTML初級[第三回]-全体のレイアウト作成(1)</a>
+      
+    </div>
+    <div class="paging-right">
+      
+        <a href="/spiritit/htmlpre/2018/03/06/htmlpre5.html">HTML初級[第五回]-ヘッダを作成<i class="material-icons paging-icon">chevron_right</i></a>
+      
+    </div>
+  </div>
+</main>
+<aside class="content-aside">
+  <div class="aside-article">
+    <span class="aside-label">Category</span>
+    <ul class="aside-list">
+    
+    
+      <li><a href="/spiritit/categories/cssappli">CSS応用</a></li>
+    
+      <li><a href="/spiritit/categories/cssentry">CSS入門</a></li>
+    
+      <li><a href="/spiritit/categories/environment">環境構築</a></li>
+    
+      <li><a href="/spiritit/categories/htmlentry">HTML入門</a></li>
+    
+      <li><a href="/spiritit/categories/htmlpre">HTML初級</a></li>
+    
+      <li><a href="/spiritit/categories/htmltopic">HTML/CSSトピック</a></li>
+    
+      <li><a href="/spiritit/categories/pcelement">パソコンの基礎</a></li>
+    
+    </ul>
+  </div>
+</aside>
+
+    </div>
+    <!-- page top button -->
+    <a class="btn-pagetop btn-floating btn-large brandcolor">
+      <i class="large material-icons">arrow_upward</i>
+    </a>
+    <footer class="page-footer footercolor">
+      <div class="footer-copyright">
+        <div class="container">
+          &copy;2018 Copyright
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

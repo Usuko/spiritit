@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <title>HTML初級[第三回]-全体のレイアウト作成SpiritIt</title>
+  <title>HTML初級[第三回]-全体のレイアウト作成(1)SpiritIt</title>
   <!-- stylesheet -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="/spiritit/assets/css/materialize.css">
@@ -48,7 +48,7 @@
     <div class="content-wrap">
       <main class="content-body">
   <span class="post-category">HTML初級</span>
-  <h1>HTML初級[第三回]-全体のレイアウト作成</h1>
+  <h1>HTML初級[第三回]-全体のレイアウト作成(1)</h1>
   <div class="chip">
     <i class="material-icons v-middle">access_time</i>
     2018年03月06日
@@ -57,8 +57,7 @@
 <p>まずは好きな作業用のフォルダを作成しそこにcssフォルダとindex.htmlという空のファイルを作成してください。index.htmlはutf-8という文字コードで保存します。わからない場合<a href="/spiritit/htmlentry/2018/02/01/htmlentry3.html" target="_blank">こちら</a>を参照してください。</p>
 
 <p>参考ではc:\workspace\htmlというフォルダに作成します。どこでも構いません。
-下記のような構成になります。<br />
-<img src="/spiritit/assets/img/htmlpre_3/htmlpre_3_1.jpg" alt="htmlpre_3" /></p>
+下記のような構成になります。</p>
 
 <p>index.htmlを開いて作業を続けます。</p>
 
@@ -174,6 +173,13 @@
 <span class="nt">&lt;/html&gt;</span>
 </code></pre></div></div>
 
+<p>divタグをそれぞれheader,aside,main,footerタグというものに変えました。</p>
+
+<p><strong>header</strong>はそのままヘッダーですという意味です。<br />
+同じように<strong>footer</strong>はフッターです。<br />
+<strong>main</strong>はブログなどで言ったらそのWebサイトで伝えたい内容を表示する部分です。<br />
+<strong>aside</strong>は基本的にはメニューであったり最近の記事へのリンク、広告などの他のコンテンツやサイトへのリンクをまとめることが多いです。</p>
+
 <p>ダブルクリックして開いても表示に変化はありません。なぜこのようなことをするのかというとコンピュータが読みやすいようにしています。このタグを使うことでコンピュータはmainの部分がこのサイトの構成を把握できます。そのためコンピュータが利用しやすいサイトになります。</p>
 
 <h2 id="分かりやすいようにcssを適用して背景色を変える">分かりやすいようにCSSを適用して背景色を変える</h2>
@@ -201,58 +207,97 @@
 
 <p>それではひとつづサイトを目標に近づけていきましょう。</p>
 
-<h2 id="コンテンツの幅を設定する">コンテンツの幅を設定する</h2>
-<p>いったんお手本であるSpiritのサイトを見てみましょう。ウインドウのサイズの幅を伸び縮みさせているとわかるのですがこのサイトに限らずほとんどのサイトはコンテンツの幅が決まっていて画面の中央に表示されています。</p>
+<h2 id="横並びのレイアウト">横並びのレイアウト</h2>
+<p>次に、レイアウトでコンテンツを横並びにする方法です。
+今記述してきたHTMLではメニュー部分のasideタグとmainタグは縦に並んでいます。これを図のように横に並べていきます。
+<img src="/spiritit/assets/img/htmlpre_4/htmlpre_4_1.jpg" alt="htmlpre_4" /></p>
 
-<p>余った部分が余白として伸び縮して中のコンテンツの幅は固定されています。　　
-<img src="/spiritit/assets/img/htmlpre_3/htmlpre_3_5.jpg" alt="htmlpre_3" /></p>
+<h3 id="htmlの修正">htmlの修正</h3>
+<p>横に並べるためには横に並べたい要素を一つのdivに入れる必要があります。
+のでhtmlは下記のようにasideとmainタグをひとつのdivタグの中に入れてください。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+	<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./css/style.css"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;title&gt;</span>サンプル<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
 
-<p>このコンテンツの幅を固定して中央に表示するにはまずサイト全体をdivタグの中に入れる必要があります。
-ここで、サイト全体といった場合bodyタグの下に当たります。ブラウザで表示されている部分はbodyタグの中が基本です。</p>
+	<span class="nt">&lt;header&gt;</span>
+		ヘッダ
+	<span class="nt">&lt;/header&gt;</span>
 
-<h3 id="実際に作業してみます">実際に作業してみます</h3>
-<p>まずコンテンツ全体というものを把握します。下記の図のようにbodyの中の要素をさしてサイト全体といっています。<br />
-<img src="/spiritit/assets/img/htmlpre_3/htmlpre_3_6.jpg" alt="htmlpre_3" />　</p>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content-body"</span><span class="nt">&gt;</span>
 
-<p>ではサイト全体をdivタグの中に入れるという作業を行います。</p>
+		<span class="c">&lt;!-- このようにasideとmainタグを含むようにdivを追加 --&gt;</span>
+		<span class="nt">&lt;aside&gt;</span>
+			メニュー
+		<span class="nt">&lt;/aside&gt;</span>
 
-<h3 id="divタグを挿入してサイト全体を区切る">divタグを挿入してサイト全体を区切る</h3>
-<h4 id="タグの挿入">タグの挿入</h4>
-<p>まずbodyタグとサイト全体の初めのタグであるheaderタグの間にdivタグ（クラスにcontentを指定）を挿入します。<br />
-<img src="/spiritit/assets/img/htmlpre_3/htmlpre_3_7.jpg" alt="htmlpre_3" />　</p>
+		<span class="nt">&lt;main&gt;</span>
+			メイン
+		<span class="nt">&lt;/main&gt;</span>
 
-<h4 id="終了タグの挿入">終了タグの挿入</h4>
-<p>始めたタグは閉じます。サイト全体であったfooterの終了タグとbodyの終了タグの間にdivの終了タグを挿入します。<br />
-<img src="/spiritit/assets/img/htmlpre_3/htmlpre_3_8.jpg" alt="htmlpre_3" />　</p>
+	<span class="nt">&lt;/div&gt;</span>
 
-<h4 id="コードを見やすくする">コードを見やすくする</h4>
-<p>タグの親子関係はとても分かりにくくなるのでサイト全体に<strong>インデント</strong>をつけます。インデントは段落みたいなもので下記のようにします。</p>
+	<span class="nt">&lt;footer&gt;</span>
+		フッタ
+	<span class="nt">&lt;/footer&gt;</span>
 
-<p>まずサイト全体としていたheaderタグからfooterの終了タグまでの行をドラッグして反転させます。<br />
-<img src="/spiritit/assets/img/htmlpre_3/htmlpre_3_9.jpg" alt="htmlpre_3" />　</p>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>上記のようにcontent-bodyというクラスのdivタグを追加します。</p>
+<h4 id="divタグの挿入">divタグの挿入</h4>
+<p>divタグを追加してみましょう。<br />
+asideとmainを囲みたいので、まずはheaderの終了タグとasideの開始タグの間にdivの開始タグを挿入します。classをcontent-bodyとして指定しておきます。<br />
+<img src="/spiritit/assets/img/htmlpre_3/htmlpre_3_15.jpg" alt="htmlpre_4" /></p>
 
-<p>そのまま、キーボードの[Tab]キーを一回おします。<br />
-押しすぎた場合[Shiftキーを押しながらTab]を押すと戻ります。<br />
-<img src="/spiritit/assets/img/htmlpre_3/htmlpre_3_10.jpg" alt="htmlpre_3" />　</p>
+<h4 id="divの終了タグを挿入">divの終了タグを挿入</h4>
+<p>開始したタグは終了しましょう。<br />
+mainの終了タグとfooterの開始タグの間にdivの終了タグを挿入します。<br />
+<img src="/spiritit/assets/img/htmlpre_3/htmlpre_3_16.jpg" alt="htmlpre_4" /></p>
 
-<p>選択されたコードの前すべてにTab文字が挿入されてコードが見やすくなります。（インデントが付きます）<br />
-この状態で保存ボタンなどをおしてファイルを保存します。<br />
-<img src="/spiritit/assets/img/htmlpre_3/htmlpre_3_11.jpg" alt="htmlpre_3" />　</p>
+<h4 id="見やすいように整形">見やすいように整形</h4>
+<p>htmlやcssなどのコードは見やすいようにしておきましょう。<br />
+たった一人で作る場合でも１日２日たった後見るとその時のことは思い出せない場合もあります。２日後の自分は他人とおもってわかりやすいようにするのが良いです。</p>
 
-<h3 id="cssに上記で指定したクラスを追加する">CSSに上記で指定したクラスを追加する</h3>
-<p>クラスを追加してみます。ついでにコンテンツの幅を設定しコンテンツを中央に配置してみます。</p>
+<p>インデントというものをつけます。同じ要素の位置を揃えるのが目的です。<br />
+asideとmainの要素は追加したdivタグの子要素になります。子要素はインデントという鋳物をつけて表すのが通例です。</p>
 
-<p>cssを開き先ほどhtmlで指定した<strong>.content</strong>というクラスを追記します。
-cssを追記するといった場合下記のように、セレクタからプロパティをまとめる記号の{}で一つのまとまりとして追加します。この設定の記述がひとまとめなので重なったりする記述はありません。
-<img src="/spiritit/assets/img/htmlpre_3/htmlpre_3_12.jpg" alt="htmlpre_3" />　</p>
+<p>asideとmainの要素をドラッグして反転します。<br />
+<img src="/spiritit/assets/img/htmlpre_3/htmlpre_3_17.jpg" alt="htmlpre_4" /></p>
 
-<p>このクラスの定義の{　}の間に幅などを指定します。今回指定するのは幅と余った幅は余白を表示するという設定です。<br />
-<img src="/spiritit/assets/img/htmlpre_3/htmlpre_3_13.jpg" alt="htmlpre_3" />　</p>
+<p>反転した状態でキーボードの「Tab」キーを一回入力します。<br />
+<img src="/spiritit/assets/img/htmlpre_3/htmlpre_3_18.jpg" alt="htmlpre_4" /></p>
 
-<div class="chusyaku">marginとはその要素の周囲の余白の設定を指します。autoは余白がある場合中身の要素が中央に表示されるよう自動で計算してくれるプロパティ値です</div>
+<p>これがインデントが付いた状態でわかりやすいとされています。</p>
+<div class="chusyaku">Tabキーを押しすぎてしまった場合、「Shiftキーを押しながらTab」を一回押してください。インデント一つ分元に戻ります。</div>
 
-<p>これでindex.htmlをブラウザで見てみると、少しわかりにくいかもしれませんがコンテンツが940pxで余白がある場合中央に表示されるサイトになりました。<br />
-<img src="/spiritit/assets/img/htmlpre_3/htmlpre_3_14.jpg" alt="htmlpre_3" />　</p>
+<h3 id="cssへの追記">cssへの追記</h3>
+<p>htmlでasideとmainタグを含む新しいdivを追加しました。このclassであるcontent-bodyというクラスを追加することでdivの中の要素の表示方法を設定できるようになります。</p>
+
+<p>それではcssへ下記のクラスと追加していきます。</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.content-body</span><span class="p">{</span>
+	<span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+	<span class="nl">flex-direction</span><span class="p">:</span> <span class="n">row</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="chusyaku">このdisplay:flexというのはcontent-bodyを指定した要素の子要素はcontent-itemという要素として取り扱われます。  このcontent-itemはflex-direction: rowというプロパティで横に並ぶようになります。
+その他flexというのはflexboxと呼ばれる技術でcss3くらいから普通になりましたがとても便利です。この横並びもflexbox以前はとても複雑に行っていました。</div>
+
+<p>そして、上記.content-bodyの部分をコピーしてファイルの最後に貼り付けます。</p>
+<div class="chusyaku">必ずしも最後である必要はありません。セレクタ{プロパティ:値}の塊の間であれば構いません。他のクラスの内容の途中である場合にはエラーとなりエラーとなった個所以降のCSSが適用されなくなってしまいます。</div>
+
+<p><img src="/spiritit/assets/img/htmlpre_4/htmlpre_4_3.jpg" alt="htmlpre_4" /><br />
+<img src="/spiritit/assets/img/htmlpre_4/htmlpre_4_4.jpg" alt="htmlpre_4" /></p>
+
+<h4 id="確認">確認</h4>
+<p>表示を確認してみましょう。横並びになっているはずです。
+<img src="/spiritit/assets/img/htmlpre_4/htmlpre_4_5.jpg" alt="htmlpre_4" /></p>
+
+<p>ですが、今度は表示幅が変わってしまいました。次はそれを直していきましょう。</p>
 
   <div class="paging">
     <div class="paging-left">
@@ -262,7 +307,7 @@ cssを追記するといった場合下記のように、セレクタからプ�
     </div>
     <div class="paging-right">
       
-        <a href="/spiritit/pcelement/2018/03/09/pcelement_1.html">Windows7の基本操作（用語１）<i class="material-icons paging-icon">chevron_right</i></a>
+        <a href="/spiritit/htmlpre/2018/03/06/htmlpre4.html">HTML初級[第四回]-全体のレイアウト作成(2)<i class="material-icons paging-icon">chevron_right</i></a>
       
     </div>
   </div>
